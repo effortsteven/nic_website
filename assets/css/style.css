@@ -52,7 +52,7 @@ a:hover{
     height: 350px;
 }
 .call-us-top{
-	position: absolute; top: 7px; right: 40px; color:rgba(5, 120, 85,1);
+	position: absolute; top: 7px; right: 40px; color:rgb(5, 120, 85);
 	font-weight: 600;
 }
 .mob-1{
@@ -537,6 +537,7 @@ iframe{
 	}
 	.call-us-top{
 		font-size: 12px;
+		color:rgb(5, 120, 85);
 	}
 	.back-cover-img{
 		display: none;
