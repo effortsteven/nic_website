@@ -23,7 +23,7 @@ html, body, div, h2, h3, h4, h5, h6{
     background: rgba(5, 120, 85,1) !important;
 }
 a, .sys-color-text{
-	color: rgba(5, 120, 85);
+	color: rgba(5, 120, 85,1);
 }
 a:hover{
 	color: rgba(5, 120, 85,.8);
@@ -90,6 +90,7 @@ a:hover{
 }
 .bland-img{
 	margin-right: 30px;
+	height: 40px;
 }
 .bland-img-1{
 	display: none;
@@ -427,7 +428,7 @@ iframe{
 }
 .navbar-brand{
 	font-weight: 400 !important;
-	font-size: 17px !important
+	font-size: 17px !important;
 }
 /*-------------------------------------MEDIA QUERY---------------------------------------------------*/
 /*------------media-Q for big screens-----------*/
@@ -601,9 +602,6 @@ iframe{
 	.navbar-toggler-btn{
 		margin-top: 0rem;
 	}
-	.call-us-mid{
-		display: inline-block;
-	}
 }
 @media (max-width: 414px){
 	.land-page-cont-1{
@@ -653,6 +651,12 @@ iframe{
 	.navbar-toggler-btn{
 		margin-right: -20px;
 	}
+	.call-us-mid{
+		display: inline-block;
+	}
+	.copyright{
+		font-size: 11px;
+	}
 }
 
 @media (max-height: 504px){
@@ -677,6 +681,9 @@ iframe{
 	#mainTitle a{
 		font-size: 14px;
 	}
+	.navbar-brand{
+	margin-left: -18px;
+	}
 }
 
 @media (max-width: 320px){
@@ -694,6 +701,12 @@ iframe{
 	}
 	.tender-raised-cont{
 		margin-top: -170px;
+	}
+	.bland-img{
+		display: none;
+	}
+	.navbar-brand{
+	margin-left: -12px;
 	}
 }
 /*------------keyframes amd animation----------------*/
