@@ -425,6 +425,10 @@ iframe{
 .call-us-mid{
 	display: none;
 }
+.navbar-brand{
+	font-weight: 400;
+	/*font-size: 20px !important*/
+}
 /*-------------------------------------MEDIA QUERY---------------------------------------------------*/
 /*------------media-Q for big screens-----------*/
 
@@ -540,9 +544,9 @@ iframe{
 	.nav-a{
 		color: none !important; 
 	}
-	.bland-img{
+	/*.bland-img{
 		display: none;
-	}
+	}*/
 	.bland-img-1{
 		margin-right: 30px;
 		display: inline-block;
