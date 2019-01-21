@@ -1,4 +1,4 @@
-/*---------------system defaults css ----------------*/
+---------------system defaults css ----------------*/
 html, body, div, h2, h3, h4, h5, h6{
 	font-family: 'Open Sans';
 }
@@ -52,7 +52,9 @@ a:hover{
     height: 350px;
 }
 .call-us-top{
-	position: absolute; top: 7px; right: 40px; color:rgb(5, 120, 85);
+	position: absolute; top: 7px; right: 40px; 
+	color: rgb(0, 131, 116) !important;
+	font-family:'Open Sans';
 	font-weight: 600;
 }
 .mob-1{
@@ -420,6 +422,9 @@ iframe{
   width: 100%;
   z-index: -1;
 }
+.call-us-mid{
+	display: none;
+}
 /*-------------------------------------MEDIA QUERY---------------------------------------------------*/
 /*------------media-Q for big screens-----------*/
 
@@ -451,15 +456,8 @@ iframe{
 	.iframe-container:hover .vid-hover-div{
 		opacity: 1;transition: .5s ease-out;
 	}
-}
-@media (min-width: 1280px){
-	.land-page-cont-1{
-		margin-top: -750px;
-	}
-}
-@media (min-width: 1290px){
-	.land-page-cont-1{
-		margin-top: -390px;
+	.navbar-collapse{
+		margin-top: none;
 	}
 }
 @media (min-width: 1500px){
@@ -478,6 +476,9 @@ iframe{
 	.iframe-container:hover .vid-hover-div{
 		opacity: 1;transition: .5s ease-out;
 	}
+	.navbar-collapse{
+		margin-top: none;
+	}
 }
 /*------------media-Q for ipad-----------*/
 @media (max-width: 1024px){
@@ -485,7 +486,7 @@ iframe{
 		font-size: 10px;
 	}
 	.land-page-cont-1{
-	margin-top: -1305px;	
+	margin-top: -1220px;	
 	}
 	.t_c_top_title{
 	margin-top: -250px;
@@ -496,9 +497,12 @@ iframe{
 	#mainTitle{
 	margin-left: 0px !important;
 	}
+	.navbar-collapse{
+		margin-top: 3.5rem;
+	}
 }
 /*-----media-Q for mobiles some ipads-------*/
-@media (max-width: 800px){
+@media (max-width: 992px){
 
 	.land-page-cont-1{
 	margin-top: -1150px;	
@@ -506,8 +510,16 @@ iframe{
 	.land-page-cont-1 h2{
 		font-size: 25px;
 	}
+	.navbar-toggler-btn{
+		margin-top: .5rem;
+		color: rgba(5, 120, 85,.81);
+		margin-right: -27px;
+	}
+	.navbar-collapse{
+		margin-top: none;
+	}
 }
-@media (max-width: 770px){
+@media (max-width: 776px){
 	.land-page-1 {
     height: 550px;
 	}
@@ -537,7 +549,6 @@ iframe{
 	}
 	.call-us-top{
 		font-size: 12px;
-		color:rgb(5, 120, 85);
 	}
 	.back-cover-img{
 		display: none;
@@ -581,6 +592,12 @@ iframe{
 	.iframe-container:active > .btn-play{
 		top: 70%; left: 27%;transition: ease-out .5s;opacity: 0;
 	}
+	.navbar-toggler-btn{
+		margin-top: 0rem;
+	}
+	.call-us-mid{
+		display: inline-block;
+	}
 }
 @media (max-width: 414px){
 	.land-page-cont-1{
@@ -620,6 +637,15 @@ iframe{
 	.news-img{
 		border-top-right-radius: 10px;
 		box-shadow: none;
+	}
+	.navbar-toggler-btn .navbar-toggler-title{
+		display: none;
+	}
+	.call-us-top{
+		display: none;
+	}
+	.navbar-toggler-btn{
+		margin-right: -20px;
 	}
 }
 
@@ -739,4 +765,4 @@ iframe{
       left:35%; 
   }
 }
-/*---------------------------END SYSTEM LOADER CODES---------------------*/
+/*---------------------------END SYSTEM LOADER CODES---------------------
