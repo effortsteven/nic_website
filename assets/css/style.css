@@ -240,7 +240,7 @@ nav .active{
     text-align: center;
     border-radius: 30px;
     vertical-align: middle;
-    background-color: rgba(5, 120, 85); 
+    background-color: rgba(5, 120, 85,1); 
 }
 #mytop i{
     font-size: 20px;
@@ -259,13 +259,15 @@ nav .active{
 }
 #sideBtn{
 	display: none;
-	position:fixed;top: 85px;z-index: 1000;color: rgba(5, 120, 85);
+	position:absolute;top: -3px;z-index: 1000;color: rgba(5, 120, 85,1);
 }
 .img-caption{
 	background: rgba(255,255,255,.8); color: black; border-radius: 3px; box-shadow: 0px 1px 3px 2px rgba(5, 120, 85,.2); width: 100%
 }
 .custom-danger-alert{
+
 	border:2px solid rgba(255,0,0,.0); padding: 10px 0px; background-color: #fbb3af; border-radius: 5px;
+	margin-top: 18px;
 	box-shadow: 0 5px 7px 0 rgba(0, 0, 0, .1), 0 1px 5px 0 rgba(0, 0, 0, .2);
 	-webkit-box-shadow: 0 5px 7px 0 rgba(0, 0, 0, .1), 0 1px 5px 0 rgba(0, 0, 0, .2);
 	-moz-box-shadow: 0 5px 7px 0 rgba(0, 0, 0, .1), 0 1px 5px 0 rgba(0, 0, 0, .2);
@@ -371,7 +373,7 @@ blockquote cite:before {
     content: "\2013";
 }
 .btn-sys-color{
-	background-color:  rgba(5, 120, 85);
+	background-color:  rgba(5, 120, 85,1);
 	color: white !important;
 }
 .btn-sys-color:hover{
@@ -471,7 +473,16 @@ iframe{
 	-webkit-box-shadow: 0 2px 5px 2px rgba(0,0,0,.1) !important;
 	-moz-box-shadow: 0 2px 5px 2px rgba(0,0,0,.1) !important;
 }
-/*-------------------------------------MEDIA QUERY---------------------------------------------------*/
+.table{
+	border-bottom: solid 2px rgba(5, 120, 85,.5);
+}
+.job-div-mob{
+	padding: 5px 10px;border-radius: 5px;
+	display: none;
+	margin-bottom: 20px;
+	box-shadow: 0px 0px 3px 3px rgba(0,0,0,.1);
+}
+/*-------------------------------------MEDIA QUERY-----------------------------------------------------------------------------------------*/
 /*------------media-Q for big screens-----------*/
 
 @media (min-width: 1200px){
@@ -504,6 +515,9 @@ iframe{
 	}
 	.navbar-collapse{
 		margin-top: none;
+	}
+	.t_c_top_title span{
+		font-size: 40px;
 	}
 }
 @media (min-width: 1500px){
@@ -563,6 +577,11 @@ iframe{
 	}
 	.navbar-collapse{
 		margin-top: none;
+	}
+}
+@media (min-width: 800px){
+	.job-div{
+		display: block;
 	}
 }
 @media (max-width: 776px){
@@ -677,6 +696,34 @@ iframe{
 	-webkit-box-shadow: none !important;
 	-moz-box-shadow: none !important;
 	}
+	.nav-pills .nav-link, .nav-tabs .nav-link{
+		padding: 3px 0!important;
+	}
+	.nav-link{
+		padding: 0;
+	}
+	.custom-danger-alert{
+		margin-top: 0px;
+		margin: 0 20px 0 20px;
+	}
+	.mob-hide-col{
+		display: none;
+	}
+	.mob-br-up-l{
+		border-top-left-radius:5px;
+	}
+	.table th{
+		font-size: 12px !important;
+	}
+	.table td{
+		font-size: 10px !important;
+	}
+	.job-div{
+		display: none;
+	}
+	.job-div-mob{
+		display: block;
+	}
 }
 @media (max-width: 414px){
 	.land-page-cont-1{
@@ -757,6 +804,12 @@ iframe{
 	margin-left: -20px;
 	margin-right: 5px
 	}
+	.about-top-title-in{
+		display: none;
+	}
+	.t_c_top_title h1{
+		font-size: 27px;
+	}
 }
 @media (max-width: 320px){
 	.land-page-cont-1{
@@ -767,9 +820,6 @@ iframe{
 	}
 	.t_c_top_title{
 		margin-top: -60px;
-	}
-	.t_c_top_title h1{
-		font-size: 27px;
 	}
 	.tender-raised-cont{
 		margin-top: -170px;

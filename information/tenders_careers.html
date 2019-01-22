@@ -147,7 +147,7 @@
             <div class="row">
                 <div class="col-md-12 ml-auto mr-auto text-center t_c_top_title">
                     <h1 class="title" style="font-family:'Samsung Sharp Sans Regular Regular'; display: inline;">Tenders &nbsp</h1>
-                        <span class="text-white" style="font-size: 40px; font-weight: 500">&amp</span>
+                        <span class="text-white" style="font-size: ; font-weight: 500">&amp</span>
                     <h1 class="title" style="font-family:'Samsung Sharp Sans Regular Regular'; display: inline;">&nbsp Careers</h1>
                 </div>
             </div>
@@ -156,17 +156,17 @@
     <div class="main main-raised tender-raised-cont">
         <div class="container col-lg-11">
 
-            <div class="about-description text-center">
-                <div  class="row">
+            <div class="about-description text-center" >
+                <div  class="row" style="margin-top: -60px;">
                     <div class="col-md-2">
-                        <ul class="nav nav-pills nav-pills-sys-col nav-pills-icons flex-column mb-5" role="tablist">
+                        <ul class="nav nav-pills nav-pills-sys-col nav-pills-icons flex-column mb-5" role="tablist" style="justify-content: center;">
                             <li class="nav-item">
                                 <a class="nav-link active" href="#tenders" role="tab" data-toggle="tab">
                                     <label class="label-counter">00</label><br>
                                     tenders
                                 </a>
                             </li>
-                            <li class="nav-item">
+                            <li class="nav-item" style="margin-top: -0px">
                                 <a class="nav-link" href="#carrier" role="tab" data-toggle="tab">
                                     <label class="label-counter">00</label><br>
                                     careers
@@ -174,14 +174,14 @@
                             </li>
                         </ul>
                     </div>
-                    <div class="col-md-10">
+                    <div class="col-md-10" style=" padding: 0;">
                         <div class="tab-content">
-                            <div class="tab-pane active" id="tenders">
+                            <div class="tab-pane active mb-3" id="tenders">
                             
                                 <!-- this div is for when there no tenders -->
-                                <div class="custom-danger-alert alert-animated">
+                                <!-- <div class="custom-danger-alert alert-animated">
                                     <span><i class="icon-alert"></i> &nbsp&nbsp Currently no new Tenders !</span>
-                                </div>
+                                </div> -->
 
                                 <!-- this div is for when there is new tenders -->
                                 <!-- <div class="custom-info-alert alert-animated-2 mt-3">
@@ -189,47 +189,45 @@
                                 </div> -->
 
                                 <div style="overflow-x: auto;">
-                                    
-                                <table class="table mt-2 table-style">
-                                    <thead>
-                                        <tr>
-                                            <th class="text-center">#</th>
-                                            <th>Tender No.</th>
-                                            <th>Tenders Description</th>
-                                            <th>Tender Category</th>
-                                            <th>Bid Document Price</th>
-                                            <th>Deadline</th>
-                                            <th>View Details</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td class="text-center">1</td>
-                                            <td>AE/092/2018/20019/DOM/NC/07</td>
-                                            <td style=" width: 300px">WKALA WA UKUSNAYAJI USHURU WA MAEGRESHO YA MAGARI KATIKA HIFADHI YA BARABARA ZILIZO CHINI YA TARURA KATIKA HALIMASHAURI YA JIJI LA DODOMA</td>
-                                            <td>NON CONSULTANCY SERVICES</td>
-                                            <td>100,000</td>
-                                            <td class="text-right">12 DEC 20018</td>
-                                            <td class="td-actions text-right">
-                                                <button type="button more-info" rel="tooltip" class="btn btn-info" data-toggle="modal" data-target="#tender-1">
-                                                    More Details
-                                                </button>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
+                                    <table class="table mt-2 table-style">
+                                        <thead>
+                                            <tr>
+                                                <th class="text-center mob-hide-col">#</th>
+                                                <th class="mob-hide-col">Tender No.</th>
+                                                <th class="mob-br-up-l">Tenders Description</th>
+                                                <th class="mob-hide-col">Tender Category</th>
+                                                <th class="mob-hide-col">Bid Document Price</th>
+                                                <th>Deadline</th>
+                                                <th>View Details</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td class="text-center mob-hide-col">1</td>
+                                                <td class="mob-hide-col">AE/092/2018/20019/DOM/NC/07</td>
+                                                <td style=" width: 300px">WKALA WA UKUSNAYAJI USHURU WA MAEGRESHO YA MAGARI KATIKA HIFADHI YA BARABARA ZILIZO CHINI YA TARURA KATIKA HALIMASHAURI YA JIJI LA DODOMA</td>
+                                                <td class="mob-hide-col">NON CONSULTANCY SERVICES</td>
+                                                <td class="mob-hide-col">100,000</td>
+                                                <td class="text-right">12 DEC 20018</td>
+                                                <td class="td-actions text-right">
+                                                    <button type="button more-info" rel="tooltip" class="btn btn-info" data-toggle="modal" data-target="#tender-1">
+                                                        More Details
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
                                 </div>
-
                             </div>
                             <div class="tab-pane" id="carrier">
 
                                 <!-- this div is for when there no job vacancy -->
-                                <div class="custom-danger-alert alert-animated">
+                                <!-- <div class="custom-danger-alert alert-animated">
                                     <span><i class="icon-alert"></i> &nbsp&nbsp Currently no new job vacancy !</span>
-                                </div>
+                                </div> -->
 
 
-                                <div class="modal-body" style="font-size: 13px;">
+                                <div class="modal-body job-div" style="font-size: 13px;">
                                         <div class="row bland-img">
                                             <div class="col-lg-2 col-sm-2 font-weight-bold">
                                                 No.
@@ -295,6 +293,21 @@
 
                                         
                                 </div>
+
+                                <div class="text-left job-div-mob">
+                                        <h4 class="" style="font-weight: 600;margin-bottom: 0">IT Officer</h4>
+                                        <label style="">Positions : 00</label>
+                                        <p style="height: 70px; overflow-y: hidden;">
+                                            Job objectives
+                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                                        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                                        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                                        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                                        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                                        proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                                        </p>
+                                        <button class="btn btn-info sys-btn-raise btn-sm">View More</button>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -307,13 +320,13 @@
             <nav class="pull-left">
                 <ul>
                     <li>
-                        <a href="../index.html">
+                        <a href="../index.html" class="sys-color-text">
                             Home
                         </a>
                     </li>
                 </ul>
             </nav>
-            <div class="copyright pull-right font-weight-normal" >
+            <div class="copyright pull-right font-weight-normal sys-color-text" >
                 &copy;
                 <script>
                     document.write(new Date().getFullYear())
