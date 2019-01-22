@@ -755,9 +755,9 @@ iframe{
 	}
 	.navbar-brand{
 	margin-left: -20px;
+	margin-right: 5px
 	}
 }
-
 @media (max-width: 320px){
 	.land-page-cont-1{
 	margin-top: -50px;	
