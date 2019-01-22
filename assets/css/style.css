@@ -259,7 +259,7 @@ nav .active{
 }
 #sideBtn{
 	display: none;
-	position:fixed;top: 70px;z-index: 1000;color: rgba(5, 120, 85);
+	position:fixed;top: 85px;z-index: 1000;color: rgba(5, 120, 85);
 }
 .img-caption{
 	background: rgba(255,255,255,.8); color: black; border-radius: 3px; box-shadow: 0px 1px 3px 2px rgba(5, 120, 85,.2); width: 100%
@@ -464,6 +464,13 @@ iframe{
 	font-weight: 400 !important;
 	font-size: 17px !important;
 }
+
+.card_2{
+	border-radius: 10px;
+	box-shadow: 0 2px 5px 2px rgba(0,0,0,.1) !important;
+	-webkit-box-shadow: 0 2px 5px 2px rgba(0,0,0,.1) !important;
+	-moz-box-shadow: 0 2px 5px 2px rgba(0,0,0,.1) !important;
+}
 /*-------------------------------------MEDIA QUERY---------------------------------------------------*/
 /*------------media-Q for big screens-----------*/
 
@@ -601,7 +608,7 @@ iframe{
 	.collapse_1{
 		z-index: 100;position: absolute;background: white;
 		display: none;
-		top:30px;
+		top:35px;
 		border-radius: 10px;
 		box-shadow: 0 2px 3px 3px rgba(0,0,0,.2);
 		width: 90%;
@@ -664,6 +671,12 @@ iframe{
 	.wrapper .card-body h6{
 		margin-left: 10px;
 	}
+	.card_2{
+	border-radius: none;
+	box-shadow: none !important;
+	-webkit-box-shadow: none !important;
+	-moz-box-shadow: none !important;
+	}
 }
 @media (max-width: 414px){
 	.land-page-cont-1{
@@ -721,6 +734,9 @@ iframe{
 @media (max-height: 504px){
 	.land-page-cont-1{
 	margin-top: -50px !important;	
+	}
+	.navbar-brand{
+	margin-left: -27px !important;
 	}
 }
 
