@@ -430,7 +430,11 @@
             var ul,uu,temp_holder;
 
             ul = window.location.href;
+            if (ul.slice(-1)=='#'){
+            uu = ul.slice(0,-10);
+            }else{
             uu = ul.slice(0,-9);
+            }
             uu = uu+"readmore.html?news="+news_id;
 
             var temp_holder = document.createElement('input'),
