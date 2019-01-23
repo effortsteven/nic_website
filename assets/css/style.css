@@ -474,13 +474,19 @@ iframe{
 	-moz-box-shadow: 0 2px 5px 2px rgba(0,0,0,.1) !important;
 }
 .table{
-	border-bottom: solid 2px rgba(5, 120, 85,.5);
+	border-bottom: solid 2px rgba(5, 120, 85,.2);
 }
 .job-div-mob{
 	padding: 5px 10px;border-radius: 5px;
 	display: none;
 	margin-bottom: 20px;
 	box-shadow: 0px 0px 3px 3px rgba(0,0,0,.1);
+}
+#map-container{
+	height: 500px; 
+	box-shadow:2px 0 9px 0 rgba(0,0,0,.15), -2.5px 4px 9px 0 rgba(0,0,0,.15),4px 10px 9px 0 rgba(0,0,0,.05);
+	-webkit-box-shadow:2px 0 9px 0 rgba(0,0,0,.15), -2.5px 4px 9px 0 rgba(0,0,0,.15),4px 10px 9px 0 rgba(0,0,0,.05);
+	-moz-box-shadow:2px 0 9px 0 rgba(0,0,0,.15), -2.5px 4px 9px 0 rgba(0,0,0,.15),4px 10px 9px 0 rgba(0,0,0,.05);
 }
 /*-------------------------------------MEDIA QUERY-----------------------------------------------------------------------------------------*/
 /*------------media-Q for big screens-----------*/
@@ -723,6 +729,9 @@ iframe{
 	}
 	.job-div-mob{
 		display: block;
+	}
+	.navbar-brand{
+		font-size: 15px !important;
 	}
 }
 @media (max-width: 414px){

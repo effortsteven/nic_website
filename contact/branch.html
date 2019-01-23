@@ -361,18 +361,18 @@
             </div>
             <div class="content-divider text-muted form-group"><span>LOCATION IN MAP</span></div>
 
-            <div class="row card">
-                                                                                <!--Google map-->
-                <div id="map-container" class="z-depth-1 b-r-7 " style="height: 500px; box-shadow:2px 0 9px 0 rgba(0,0,0,.15), -2.5px 4px 9px 0 rgba(0,0,0,.15),4px 10px 9px 0 rgba(0,0,0,.05)"></div>
+            <div class="row card mx-auto" >
+               <!--Google map-->
+                <div id="map-container" class="z-depth-1 b-r-7 "></div>
 
 
                 <!--Google Maps-->
                     <script type="text/javascript">
                 function myMap() {
                     var mapProp= {
-                                                center:new google.maps.LatLng(-6.8159803,39.2905912),
-                                                zoom:15,
-                                            };
+                    center:new google.maps.LatLng(-6.8159803,39.2905912),
+                    zoom:15,
+                  };
                     var map=new google.maps.Map(document.getElementById("map-container"),mapProp);
                                             }
                 </script>
@@ -387,13 +387,13 @@
             <nav class="pull-left">
                 <ul>
                     <li>
-                        <a href="../index.html">
+                        <a href="../index.html" class=" sys-color-text">
                             Home
                         </a>
                     </li>
                 </ul>
             </nav>
-            <div class="copyright pull-right font-weight-normal" >
+            <div class="copyright pull-right font-weight-normal sys-color-text" >
                 &copy;
                 <script>
                     document.write(new Date().getFullYear())
