@@ -14,7 +14,7 @@
     <meta name="theme-color" content="#057855fc">
     
     <title>
-      NIC | News & Events
+        News & Events | NIC
     </title>
     <!--  Social tags      -->
     <meta name="keywords" content="">
@@ -43,7 +43,7 @@
 
 <div id="wrap-loader" >
     <div id="loader" class="text-center">
-        <div class="loader-div"><i class="icon-spinner2"></i></div>
+        <div class="loader-div"></div>
         <h3 style="color: teal; font-size: 20px;font-family:'Samsung Sharp Sans Regular Regular';">Loading....</h3>
     </div>
 </div>
@@ -117,7 +117,7 @@
                     <li class="dropdown nav-item nav-item-a">
                         <a href="#" class="nav-link text-center dropdown-toggle" data-toggle="dropdown">
                             <span class="nav-a">
-                            galley
+                            gallery
                            </span>
                         </a>
 
@@ -166,7 +166,7 @@
             <div class=" text-center pb-3 pt-3">
                 <div class="text-right">
 
-                    <label style=""></label>
+                    <label></label>
                     
                 </div>
                 <div  class="row mb-5">
@@ -208,97 +208,24 @@
                             </div>
                         </div>
 
-                            <!-- loop this -->
-                        <div class="news-div col-md-12 mt-3 mb-3 news">
-                            
-                            <div class="row">
-                                <div class="col-md-5" style=" padding: 0px 0px;">
-                                    <img class="news-img" src="../assets/img/kit/news_events/plane.png" >
-                                </div>
-                                <div class="col-md-7" style="padding: 0px 0px">
-
-                                    <!-- news title -->
-                                    <h5 style="">news title  </h5>
-
-                                    <div class="col-md-12 mt-2" style="">
-
-                                        <!-- news body -->
-                                        <p class="pb-5">
-                                            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusm
-                                        </p>
-                                    </div>
-                                    <div class="col-md-12 mt-3 mb-3" style="position: absolute; bottom: 0px; width: 100%; ">
-                                        <!-- provide a news url -->
-                                        <button onclick="open_pager('null.html',null)" class="btn btn-fab btn-round btn-sm sys-btn-raise" title="Visit page" data-toggle="tooltip" data-placement="bottom" style="background: #037ef3">
-                                            <i class="material-icons">open_in_new</i>
-                                        </button>
-                                        <button onclick="share(1)" class="share btn btn-fab btn-round btn-sm sys-btn-raise" title="Copy this link" data-toggle="tooltip" data-placement="bottom" style="background: #00a78e">
-                                            <i class="material-icons">share</i>
-                                        </button>
-                                        <button onclick="send_mail(1)" class="btn btn-fab btn-round btn-rose btn-sm sys-btn-raise" title="Recieve as mail" data-toggle="tooltip" data-placement="bottom">
-                                            <i class="material-icons">email</i>
-                                        </button>
-                                        <button class="btn btn-fab btn-round btn-sm sys-btn-raise" title="Download PDF" data-toggle="tooltip" data-placement="bottom" style="background: #6a737b">
-                                            <i class="material-icons">get_app</i>
-                                        </button>
-                                    </div>
-
-                                </div>
-                            </div>
+                        <div class="news_events_container">
 
                         </div>
-                            <!-- end here --> 
 
-
-                            <!-- loop this -->
-                        <div class="news-div col-md-12 mt-3 mb-3 events">
-                            
-                            <div class="row">
-                                <div class="col-md-5" style=" padding: 0px 0px;">
-                                    <img class="news-img" src="../assets/img/kit/news_events/plane.png" >
-                                </div>
-                                <div class="col-md-7" style="padding: 0px 0px">
-
-                                    <!-- news title -->
-                                    <h5 style="">event title  </h5>
-
-                                    <div class="col-md-12 mt-2" style="">
-
-                                        <!-- news body -->
-                                        <p class="pb-5">
-                                            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusm
-                                        </p>
-                                    </div>
-                                    <div class="col-md-12 mt-3 mb-3" style="position: absolute; bottom: 0px; width: 100%; ">
-                                        <!-- provide a news url -->
-                                        <button onclick="open_pager('null.html',null)" class="btn btn-fab btn-round btn-sm sys-btn-raise" title="Visit page" data-toggle="tooltip" data-placement="bottom" style="background: #037ef3">
-                                            <i class="material-icons">open_in_new</i>
-                                        </button>
-                                        <button onclick="share(1)" class="share btn btn-fab btn-round btn-sm sys-btn-raise" title="Copy this link" data-toggle="tooltip" data-placement="bottom" style="background: #00a78e">
-                                            <i class="material-icons">share</i>
-                                        </button>
-                                        <button onclick="send_mail(1)" class="btn btn-fab btn-round btn-rose btn-sm sys-btn-raise" title="Recieve as mail" data-toggle="tooltip" data-placement="bottom">
-                                            <i class="material-icons">email</i>
-                                        </button>
-                                        <button class="btn btn-fab btn-round btn-sm sys-btn-raise" title="Download PDF" data-toggle="tooltip" data-placement="bottom" style="background: #6a737b">
-                                            <i class="material-icons">get_app</i>
-                                        </button>
-                                    </div>
-
-                                </div>
-                            </div>
-
-                        </div>
-                            <!-- end here -->
-
-                        <div class="danger-alert-vid mt-5">
-                        <!-- place here NIC Youtube channel URL -->
+                        <div class="danger-alert-vid mt-5 no_news_events">
                            <a href="#" class="text-danger" title="NIC Youtube Channel">No New News or Events.</a>
                         </div>
 
+                        <div class="danger-alert-vid mt-5 no_news">
+                           <a href="#" class="text-danger" title="NIC Youtube Channel">No New News.</a>
+                        </div>
+
+                        <div class="danger-alert-vid mt-5 no_events">
+                           <a href="#" class="text-danger" title="NIC Youtube Channel">No New Events.</a>
+                        </div>
                     </div>
-                    <div class="col-md-4 pr-auto mt-5">
-                        <div class=" manual-flip">
+                    <div class="col-md-4 pr-auto mt-5" >
+                        <div class=" manual-flip subscribe_div">
                                     <div class="card card-rotat">
                                         <div class=" front-background" style="background-image: url('../assets/img/kit/card-blog5.jpg'); border-radius: 10px;">
                                             <div class="card-body">
@@ -310,7 +237,7 @@
                                                 <div class="form-group form-file-upload">
                                                     <div class="input-group" style="padding-left: 15px;">
                                                         <input type="email" class="subscribe_mail form-control" placeholder="Enter Your Email...." style="width: 90%; position: absolute; background: white; border-radius: 30px;padding-left: 10px;">
-                                                            <button id="subscribe" type="button" class="btn btn-fab btn-round btn-subsc" style="">
+                                                            <button id="subscribe" type="button" class="btn btn-fab btn-round btn-subsc">
                                                                 <i class="material-icons" style="margin-top: 3px; margin-left: 3px;">arrow_forward_ios</i>
                                                             </button>
                                                     </div>
@@ -331,7 +258,7 @@
             <nav class="pull-left">
                 <ul>
                     <li>
-                        <a href="../index.html" class=" sys-color-text">
+                        <a href="../index.html" class="sys-color-text">
                             Home
                         </a>
                     </li>
@@ -342,7 +269,7 @@
                 <script>
                     document.write(new Date().getFullYear())
                 </script> 
-                &nbsp National Insurerance Corporation (T) Limited.
+                &nbsp National Insurance Corporation (T) Limited.
             </div>
         </div>
     </footer>
@@ -378,6 +305,8 @@
     <script src="../assets/assets-for-demo/js/material-kit-demo.js"></script>
 
     <script src="../assets/js/style.js"></script>
+    <script src="../assets/js/api_connection.js"></script>
+    <script src="../assets/js/api_functions.js"></script>
 
     <script src="../assets/js/bootstrap-notify.min.js"></script>
 
@@ -386,12 +315,19 @@
 
 
     <script type="text/javascript">
+
+
+        //load image from endpoint
+        $(document).ready(function(){
+            $('.news_events_container').html(news_events());
+        });
         
+
         // on click subscribe button send email to database
-    
         $('#subscribe').click(function(){
             var mail = $('.subscribe_mail').val();
             if(isEmail(mail)){
+                new Connect_2(0,mail);
                   $.notify({
                 // options
                 message: '<i class="icon-checkmark3" style="font-size:20px;"></i>&nbsp &nbsp &nbsp You have successful subscribed to our news mail !'
@@ -412,13 +348,15 @@
               }
                  
         });
+
+
         // start function open_pager
         function open_pager(data_url,id){
 
-            if (data_url==null && id!=null){
+            if (data_url=='null' && id!=null){
                 window.location.href = "readmore.html?news="+id;
-            }else if(data_url!=null && id==null){
-            window.location.href = data_url ;
+            }else if(data_url!=null && id!=null){
+            location.replace(data_url);
             }
         }
         //end function open_pager
@@ -471,7 +409,7 @@
                 content: '' +
                 '<form action="" class="formName">' +
                 '<div class="form-group">' +
-                '<input type="text" placeholder="Enter mail......" class="mail form-control" required />' +
+                '<input type="email" placeholder="Enter your mail address......" class="mail form-control" required />' +
                 '</div>' +
                 '</form>',
                 buttons: {
@@ -484,7 +422,14 @@
                                 $.alert('Provide a valid mail');
                                 return false;
                             }
-                            $.alert('Mail of id="' + news_id + '",has been sent to email address ' + mail);
+                            if(isEmail(mail)==true){
+                                new Connect_2(news_id,mail);
+                                $.alert('Mail has been sent to email address ' + mail);  
+                            }else{
+                                $.alert('Email is not valid!');
+                                return false;
+                            }
+                            
                         }
                     },
                     formClose: {
@@ -496,6 +441,8 @@
         }
         // end send_mail function
 
+
+        // animate show hide news and events
         $(document).ready(function(){
             var state = $('#news_radio input[name="news_events"]:checked').val();
                 if(state==0){
@@ -509,8 +456,9 @@
             }else{
                 $('.news').css('display','none');
                 $('.events').css('display','none');
+                $('.no_news_events').css('display','block');
+
             }
-            console.log(state);
         });
         $('#news_radio input[type="radio"]').change(function(){
 
@@ -536,4 +484,5 @@
                 $('.news').css('display','none');
             }
         });
+
     </script>

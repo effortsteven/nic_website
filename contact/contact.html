@@ -14,7 +14,7 @@
     <meta name="theme-color" content="#057855fc">
     
     <title>
-      NIC | Contact Us
+        Contact Us | NIC
     </title>
     <!--  Social tags      -->
     <meta name="keywords" content="">
@@ -43,7 +43,7 @@
     
 <div id="wrap-loader" >
     <div id="loader" class="text-center">
-        <div class="loader-div"><i class="icon-spinner2"></i></div>
+        <div class="loader-div"></div>
         <h3 style="color: teal; font-size: 20px;font-family:'Samsung Sharp Sans Regular Regular';">Loading....</h3>
     </div>
 </div>
@@ -82,7 +82,7 @@
                         </a>
                     </li>
                     <li class="dropdown nav-item nav-item-a">
-                        <a href="#pablo" class="nav-link text-center dropdown-toggle" data-toggle="dropdown">
+                        <a href="#" class="nav-link text-center dropdown-toggle" data-toggle="dropdown">
                             <span class="nav-a">
                             Products
                            </span>
@@ -116,7 +116,7 @@
                     <li class="dropdown nav-item nav-item-a">
                         <a href="#" class="nav-link text-center dropdown-toggle" data-toggle="dropdown">
                             <span class="nav-a">
-                            galley
+                            gallery
                            </span>
                         </a>
 
@@ -169,28 +169,8 @@
                 <div  class="row mb-5">
                     <div class="col-lg-9">
 
-                        <div class="row">
+                        <div class="row branch_div" style="justify-content: center;">
 
-                            <!-- loop this -->
-                            <div class="col-lg-4">
-                                <div class="card card-contact card-raised">
-                                    <div class="card-header card-header-info text-center">
-                                        <h4 class="card-title" style="font-family:'Samsung Sharp Sans Regular Regular' ">branch.name</h4>
-                                    </div>
-                                    <div class="card-body">
-                                        <div class="row">
-
-                                           <div class="col-lg-12">
-                                                <label class="col-lg-12" style="color: grey"><i class="icon-phone"></i>&nbsp&nbsp&nbsp&nbsp +255 717 789 807</label>
-                                                <label class="col-lg-12" style="color: grey"><i class="icon-phone"></i>&nbsp&nbsp&nbsp&nbsp +255 717 789 807</label>
-                                                <label class="col-lg-12"><a href="#" onclick="view_more('BR01')" style="color:rgb(0, 151, 167) "><i class="icon-location4"></i>&nbsp&nbsp&nbsp&nbsp view more</a></label>
-                                           </div>
-
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- end loop -->
 
 
                         </div>
@@ -199,8 +179,8 @@
                         <div class="col-lg-12 text-center mt-10"><span style="border-bottom: 1px solid #999">WORKING HOURS</span></div>
                         <div class="col-lg-12 mt-3 text-left" style="border-left: 1px solid #999999">
                             <p><span class="text-muted">Weekdays</span> <span class="pull-right sys-color-text">8:00am - 4:30pm</span></p>
-                            <p><span class="text-muted">Weekends</span> <span class="pull-right sys-color-text">9:00am - 12:30pm</span></p>
-                            <p><span class="text-muted">Holidays</span> <span class="pull-right text-danger">Closed</span></p>
+                            <p><span class="text-muted">Satuday</span> <span class="pull-right sys-color-text">9:00am - 12:30pm</span></p>
+                            <p><span class="text-muted">Sunday / Holidays</span> <span class="pull-right text-danger">Closed</span></p>
                         </div>
                     </div>
                 </div>
@@ -259,6 +239,8 @@
     <script src="../assets/assets-for-demo/js/material-kit-demo.js"></script>
 
     <script src="../assets/js/style.js"></script>
+    <script src="../assets/js/api_connection.js"></script>
+    <script src="../assets/js/api_functions.js"></script>
 
     <script src="../assets/js/bootstrap-notify.min.js"></script>
 
@@ -267,6 +249,12 @@
 
 
     <script type="text/javascript">
+
+        //queries all the branch from API
+        $(document).ready(function(){
+            $('.branch_div').html(get_branches());
+        });
+
         //start functiom view more
             function view_more(branch_id){
                 window.location.href = "branch.html?branch="+branch_id;

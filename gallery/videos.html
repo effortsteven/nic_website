@@ -14,7 +14,7 @@
     <meta name="theme-color" content="#057855fc">
     
     <title>
-      NIC | Video Gallery
+      Video Gallery | NIC
     </title>
     <!--  Social tags      -->
     <meta name="keywords" content="">
@@ -38,7 +38,7 @@
     
 <div id="wrap-loader" >
     <div id="loader" class="text-center">
-        <div class="loader-div"><i class="icon-spinner2"></i></div>
+        <div class="loader-div"></i></div>
         <h3 style="color: teal; font-size: 20px;font-family:'Samsung Sharp Sans Regular Regular';">Loading....</h3>
     </div>
 </div>
@@ -77,7 +77,7 @@
                                     </a>
                                 </li>
                                 <li class="dropdown nav-item nav-item-a">
-                                    <a href="#pablo" class="nav-link text-center dropdown-toggle" data-toggle="dropdown">
+                                    <a href="#" class="nav-link text-center dropdown-toggle" data-toggle="dropdown">
                                         <span class="nav-a">
                                         Products
                                        </span>
@@ -111,7 +111,7 @@
                                 <li class="dropdown active nav-item nav-item-a">
                                     <a href="#" class="nav-link text-center dropdown-toggle" data-toggle="dropdown">
                                         <span class="nav-a">
-                                        galley
+                                        gallery
                                        </span>
                                     </a>
 
@@ -155,12 +155,13 @@
         <div class="container col-lg-12">
 
             <div class=" text-center pb-3 pt-3">
-                <div class="text-right">
+                <div class="text-right ">
+                    <span class="channel_sub">
 
-                    <label style="color: rgba(60, 72, 88,1);font-size: 16px">Visit Our Official Youtube Channel <a href="" class="btn btn-danger btn-round sys-btn-raise btn-sm" style=""><i class="icon-youtube"></i>
-                                &nbsp&nbsp Youtube
-                                </a></label>
-                    
+                    </span>
+                    <button onclick="share_channel()" class="share btn btn-fab btn-round btn-sm sys-btn-raise" title="Share Channel Link" data-toggle="tooltip" data-placement="bottom" style="background: #00a78e">
+                        <i class="material-icons">share</i>
+                    </button>
                 </div>
                 <div  class="row mb-5">
 
@@ -168,27 +169,10 @@
                         <div class="text-left">
                             <label style="color: rgba(60, 72, 88,1);font-size: 16px"><i class="icon-history"></i> Our Recent Videos</label>
                         </div>
-                       <div class="row">
-                           <div class="col-md-6 mt-3 vid-div">
-                                <div class="iframe-container b-r-6">
-                                       <iframe src="" frameborder="0"  allow="encrypted-media" allowfullscreen></iframe>
+                       <div class="row video_disp_container" style="justify-content: center">
+                           
 
-                                    <div class="vid-hover-div">
-                                    </div>
-                                    
-                                    <!-- youtube url -->
-                                    <a href="https://www.youtube.com/embed/IN6QnLpVEPI" class="btn btn-danger btn-round sys-btn-raise btn-sm btn-play" style=""><i class="icon-play4"></i>&nbsp &nbsp Play
-                                    </a>
-                                    <div>
-                                        <!--  youtube url -->
-                                        <a href=""><label class="text-info">
-                                            video title
-                                        </label></a>
-                                    </div>
-                                </div>
-                            </div>
-
-                           <div class="col-md-6 mt-3 vid-div">
+                           <!-- <div class="col-md-6 mt-3 vid-div">
                                 <div class="iframe-container b-r-6">
                                     <div>
                                         
@@ -197,7 +181,7 @@
 
                                     </div>
 
-                                    <button type="button" class="btn btn-danger btn-round sys-btn-raise btn-sm btn-play" style=""><i class="icon-play4"></i>
+                                    <button type="button" class="btn btn-danger btn-round sys-btn-raise btn-sm btn-play" ><i class="icon-play4"></i>
                                     &nbsp&nbsp Play
                                     </button>
                                     <div>
@@ -206,57 +190,12 @@
                                         </label></a>
                                     </div>
                                 </div>
-                            </div>
-                           <div class="col-md-6 mt-3 vid-div">
-                                <div class="iframe-container b-r-6">
-                                    <div>
-                                        
-                                    <iframe src="https://www.youtube.com/embed/IN6QnLpVEPI" frameborder="0"  allow="encrypted-media" allowfullscreen></iframe>
-                                    <div class="vid-hover-div"></div> 
-
-                                    </div>
-
-                                    <button type="button" class="btn btn-danger btn-round sys-btn-raise btn-sm btn-play" style=""><i class="icon-play4"></i>
-                                    &nbsp&nbsp Play
-                                    </button>
-                                    <div>
-                                        <a href=""><label class="text-info">
-                                            video title
-                                        </label></a>
-                                    </div>
-                                </div>
-                            </div>
-
-                           <div class="col-md-6 mt-3 vid-div">
-                                <div class="iframe-container b-r-6" >
-                                        <div>
-                                        
-                                    <iframe src="https://www.youtube.com/embed/IN6QnLpVEPI" frameborder="0" allow="encrypted-media" allowfullscreen></iframe>
-                                    <div class="vid-hover-div"></div> 
-                                    
-                                    </div>
-
-                                    <button type="button" class="btn btn-danger btn-round sys-btn-raise btn-sm btn-play" style=""><i class="icon-play4"></i>
-                                    &nbsp&nbsp Play
-                                    </button>
-                                    <div>
-                                        <a href=""><label class="text-info">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                                        tempor incididunt ut labore et .</label></a>
-                                    </div>
-                                </div>
-                            </div>
-                       </div>
-
-                       <div class="danger-alert-vid">
-                        <!-- place here NIC Youtube channel URL -->
-                           <a href="#" class="text-danger" title="NIC Youtube Channel">No New Videos!, Visit our official Youtube channel.</a>
+                            </div> -->
                        </div>
 
                     </div>
                     <div class="col-md-5 pr-auto mt-5 mob-no-disp">
-                        <!-- ?autoplay=1 -->
-                       <iframe src="https://www.youtube.com/embed/SMP79Pzz3Bw" style="height: 300px;box-shadow: -8px 10px 10px 0px rgba(0,0,0,.25), 2px 0px 10px 1px rgba(0,0,0,.2);">
-                       </iframe>
+                       
                     </div>
                 </div>
             </div>
@@ -267,25 +206,24 @@
             <nav class="pull-left">
                 <ul>
                     <li>
-                        <a href="../index.html">
+                        <a href="../index.html" class="sys-color-text">
                             Home
                         </a>
                     </li>
                 </ul>
             </nav>
-            <div class="copyright pull-right font-weight-normal" >
+            <div class="copyright pull-right font-weight-normal sys-color-text">
                 &copy;
                 <script>
                     document.write(new Date().getFullYear())
                 </script> 
-                &nbsp National Insurerance Corporation (T) Limited.
+                &nbsp National Insurance Corporation (T) Limited.
             </div>
         </div>
     </footer>
 
 </body>
 </html>
- <!--   Core JS Files   -->
     <script src="../assets/js/core/jquery.min.js"></script>
     <script src="../assets/js/vue/style-vue-home.js"></script>
     <script src="../assets/js/core/popper.min.js"></script>
@@ -305,16 +243,18 @@
     <script src="../assets/js/plugins/jasny-bootstrap.min.js"></script>
     <!--    Plugin for Small Gallery in Product Page -->
     <script src="../assets/js/plugins/jquery.flexisel.js"></script>
-    <!-- Plugins for presentation and navigation  -->
-    <script src="../assets/assets-for-demo/js/modernizr.js"></script>
-    <script src="../assets/assets-for-demo/js/vertical-nav.js"></script>
     <!-- Material Kit Core initialisations of plugins and Bootstrap Material Design Library -->
     <script src="../assets/js/material-kit.min40a0.js?v=2.0.2"></script>
-    <!-- Fixed Sidebar Nav - js With initialisations For Demo Purpose, Don't Include it in your project -->
-    <script src="../assets/assets-for-demo/js/material-kit-demo.js"></script>
     <script src="../assets/js/style.js"></script>
     <script src="../assets/js/bootstrap-notify.min.js"></script>
+    <script src="../assets/js/api_connection.js"></script>
+    <script src="../assets/js/api_functions.js"></script>
 
     <script type="text/javascript">
+        get_videos();
+    function share_channel(){
+        var get_url = $('.channel_sub a').attr('href');
 
+        console.log(get_url);
+    }
     </script>

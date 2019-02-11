@@ -14,7 +14,7 @@
     <meta name="theme-color" content="#057855fc">
     
     <title>
-      NIC | News & Events
+      News & Events | NIC
     </title>
     <!--  Social tags      -->
     <meta name="keywords" content="">
@@ -83,7 +83,7 @@
                         </a>
                     </li>
                     <li class="dropdown nav-item nav-item-a">
-                        <a href="#pablo" class="nav-link text-center dropdown-toggle" data-toggle="dropdown">
+                        <a href="#" class="nav-link text-center dropdown-toggle" data-toggle="dropdown">
                             <span class="nav-a">
                             Products
                            </span>
@@ -117,7 +117,7 @@
                     <li class="dropdown nav-item nav-item-a">
                         <a href="#" class="nav-link text-center dropdown-toggle" data-toggle="dropdown">
                             <span class="nav-a">
-                            galley
+                            gallery
                            </span>
                         </a>
 
@@ -158,47 +158,14 @@
             <div class=" text-center pb-3 pt-3">
                 <div class="text-right">
 
-                    <label style=""></label>
+                    <label ></label>
                     
                 </div>
 
-               <div class="row">
-                                <div class="col-md-5" style=" padding: 0px 0px;">
-                                <img class="news-img" src="../assets/img/kit/news_events/plane.png" >
-                                </div>
-                                <div class="col-md-7" style="padding: 0px 0px">
-
-                                    <!-- news title -->
-                                    <h5 style="">news title  </h5>
-
-                                    <div class="col-md-12 mt-2" style="">
-
-                                        <!-- news body -->
-                                        <p class="pb-5">
-                                            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusm
-                                            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                                            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                                            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                                            consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                                            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                                            proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                                            lorem
-                                        </p>
-                                    </div>
-                                    <div class="col-md-12 mt-3 mb-3 text-right" style="position: absolute; bottom: 0px; width: 100%; ">
-                                        
-                                        <button onclick="share(1)" class="share btn btn-fab btn-round btn-sm sys-btn-raise" title="Copy this link" data-toggle="tooltip" data-placement="bottom" style="background: #00a78e">
-                                            <i class="material-icons">share</i>
-                                        </button>
-                                        <button onclick="send_mail(1)" class="btn btn-fab btn-round btn-rose btn-sm sys-btn-raise" title="Recieve as mail" data-toggle="tooltip" data-placement="bottom">
-                                            <i class="material-icons">email</i>
-                                        </button>
-                                        <button class="btn btn-fab btn-round btn-sm sys-btn-raise" title="Download PDF" data-toggle="tooltip" data-placement="bottom" style="background: #6a737b">
-                                            <i class="material-icons">get_app</i>
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>            </div>
+               <div class="row news_events_container">
+                    
+                </div>            
+            </div>
 
         </div>
     </div>
@@ -218,7 +185,7 @@
                 <script>
                     document.write(new Date().getFullYear())
                 </script> 
-                &nbsp National Insurerance Corporation (T) Limited.
+                &nbsp National Insurance Corporation (T) Limited.
             </div>
         </div>
     </footer>
@@ -255,6 +222,8 @@
     <script src="../assets/assets-for-demo/js/material-kit-demo.js"></script>
 
     <script src="../assets/js/style.js"></script>
+    <script src="../assets/js/api_connection.js"></script>
+    <script src="../assets/js/api_functions.js"></script>
 
     <script src="../assets/js/bootstrap-notify.min.js"></script>
 
@@ -264,17 +233,14 @@
 
     <script type="text/javascript">
 
-        // start function open_pager
-        function open_pager(data_url,id){
+        //GET news or event ID
+        $(document).ready(function(){
+            var url_str_raw = window.location.href;
+            var url_str = new URL(url_str_raw);
+            var url_val = url_str.searchParams.get('news');
 
-            if (data_url==null && id!=null){
-                window.location.href = "readmore.html?news="+id;
-            }else if(data_url!=null && id==null){
-            window.location.href = data_url ;
-            }
-        }
-        //end function open_pager
-
+            $('.news_events_container').html(get_news_events(url_val));
+        });
 
         // start of function share
         function share(){
@@ -317,7 +283,7 @@
                 content: '' +
                 '<form action="" class="formName">' +
                 '<div class="form-group">' +
-                '<input type="text" placeholder="Enter mail......" class="mail form-control" required />' +
+                '<input type="email" placeholder="Enter your mail address......" class="mail form-control" required />' +
                 '</div>' +
                 '</form>',
                 buttons: {
@@ -330,7 +296,14 @@
                                 $.alert('Provide a valid mail');
                                 return false;
                             }
-                            $.alert('Mail of id="' + news_id + '",has been sent to email address ' + mail);
+                            if(isEmail(mail)==true){
+                                new Connect_2(news_id,mail);
+                                $.alert('Mail has been sent to email address ' + mail);  
+                            }else{
+                                $.alert('Email is not valid!');
+                                return false;
+                            }
+                            
                         }
                     },
                     formClose: {

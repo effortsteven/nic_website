@@ -24,7 +24,7 @@ html, body, div, h2, h3, h4, h5, h6{
 }
 /*-----------------------------SYSTEM LOADER CODE-----------------------*/
 #wrap-loader, #loader{
-   position: absolute; 
+   position: fixed; 
 }
 #wrap-loader{
   background: rgba(255,255,255,.9);height: 100%; width: 100%;
@@ -35,8 +35,13 @@ html, body, div, h2, h3, h4, h5, h6{
   top: 30%;
 }
 #loader .loader-div{
-  -webkit-animation: spin .7s linear infinite;
-  animation: spin .7s linear infinite;
+	border: 10px solid #d3d3d3;
+	border-radius: 50%;
+	border-top: 10px solid teal;
+	width: 80px;
+	height: 80px;
+  -webkit-animation: spin .9s linear infinite;
+  animation: spin .9s linear infinite;
 }
 #loader i{
   font-size: 70px;color:teal
@@ -413,7 +418,7 @@ iframe{
 	-moz-box-shadow: 2px 3px 5px 0px rgba(0,0,0,.2), 0px -2px 5px 0px rgba(0,0,0,.1);
 }
 .danger-alert-vid{
-	padding: .31in 0in;
+	padding: .31in .5in;
 	box-shadow:0px -1px 5px 0px rgba(255,0,0,.08), 2px 4px 3px 0px rgba(255,0,0,.15),-2px 1px 5px 0px rgba(255,0,0,.2);
 	-webkit-box-shadow:0px -1px 5px 0px rgba(255,0,0,.08), 2px 4px 3px 0px rgba(255,0,0,.15),-2px 1px 5px 0px rgba(255,0,0,.2);
 	-moz-box-shadow:0px -1px 5px 0px rgba(255,0,0,.08), 2px 4px 3px 0px rgba(255,0,0,.15),-2px 1px 5px 0px rgba(255,0,0,.2);
@@ -488,6 +493,9 @@ iframe{
 	-webkit-box-shadow:2px 0 9px 0 rgba(0,0,0,.15), -2.5px 4px 9px 0 rgba(0,0,0,.15),4px 10px 9px 0 rgba(0,0,0,.05);
 	-moz-box-shadow:2px 0 9px 0 rgba(0,0,0,.15), -2.5px 4px 9px 0 rgba(0,0,0,.15),4px 10px 9px 0 rgba(0,0,0,.05);
 }
+.no_news, .no_events, .no_news_events{
+	display: none;
+}
 /*-------------------------------------MEDIA QUERY-----------------------------------------------------------------------------------------*/
 /*------------media-Q for big screens-----------*/
 
@@ -524,6 +532,9 @@ iframe{
 	}
 	.t_c_top_title span{
 		font-size: 40px;
+	}
+	.subscribe_div{
+		position:fixed;
 	}
 }
 @media (min-width: 1500px){
@@ -565,6 +576,9 @@ iframe{
 	}
 	.navbar-collapse{
 		margin-top: 3.5rem;
+	}
+	.subscribe_div{
+		position:static;
 	}
 }
 /*-----media-Q for mobiles some ipads-------*/

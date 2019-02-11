@@ -14,7 +14,7 @@
     <meta name="theme-color" content="#057855fc">
     
     <title>
-      NIC | Photo Gallery
+      Photo Gallery | NIC
     </title>
     <!--  Social tags      -->
     <meta name="keywords" content="">
@@ -46,7 +46,7 @@
 
 <div id="wrap-loader" >
     <div id="loader" class="text-center">
-        <div class="loader-div"><i class="icon-spinner2"></i></div>
+        <div class="loader-div"></div>
         <h3 style="color: teal; font-size: 20px;font-family:'Samsung Sharp Sans Regular Regular';">Loading....</h3>
     </div>
 </div>
@@ -86,7 +86,7 @@
                                     </a>
                                 </li>
                                 <li class="dropdown nav-item nav-item-a">
-                                    <a href="#pablo" class="nav-link text-center dropdown-toggle" data-toggle="dropdown">
+                                    <a href="#" class="nav-link text-center dropdown-toggle" data-toggle="dropdown">
                                         <span class="nav-a">
                                         Products
                                        </span>
@@ -120,7 +120,7 @@
                                 <li class="dropdown active nav-item nav-item-a">
                                     <a href="#" class="nav-link text-center dropdown-toggle" data-toggle="dropdown">
                                         <span class="nav-a">
-                                        galley
+                                        gallery
                                        </span>
                                     </a>
 
@@ -165,90 +165,8 @@
 
             <div class="about-description text-center">
                <div  class="row" style=" margin-top: -50px;">
-                    <div class="col-md-10 ml-auto mr-auto" >
-                        <h4 class="title text-left" style="border-bottom: 1px solid rgba(16, 94, 58, 0.3); padding-bottom: 5px;font-family: times">
-                            This photos title...
-                        </h4>
-                        <!-- loop photos here of this title -->
-                        <div class="demo-gallery" style="">
-                            <ul id="lightgallery" class="list-unstyled row mb-3" style="justify-content: center;">
-
-                                <li class="col-xs-2 col-sm-2 col-md-2 img-mob" data-responsive="../assets/img/kit/bg21.jpg 800" data-src="../assets/img/kit/bg21.jpg" data-sub-html="
-                                <h4>
-                                <!-- heading of the image -->
-                                This photos title
-                                </h4>
-                                <p>
-                                    <!-- caption starts here... -->
-                                Classic view from Rigwood Jetty on Coniston Water an old archive shot similar to an old post but a little later on.
-                                </p>"
-                                >
-                                    <a href="">
-                                        <img class="img-responsive b-r-6" src="../assets/img/kit/bg21.jpg" style="">
-                                    </a>
-                                </li>
-
-                                 <li class="col-xs-2 col-sm-2 col-md-2 img-mob" data-responsive="../assets/img/kit/gas.jpg 800" data-src="../assets/img/kit/gas.jpg" data-sub-html="
-                                <h4>
-                                <!-- heading of the image -->
-                                This photos title
-                                </h4>
-                                <p>
-                                    <!-- caption starts here... -->
-                                Classic view from Rigwood Jetty on Coniston Water an old archive shot similar to an old post but a little later on.
-                                </p>"
-                                >
-                                    <a href="">
-                                        <img class="img-responsive b-r-6" src="../assets/img/kit/gas.jpg" style="">
-                                    </a>
-                                </li>
-
-                                <li class="col-xs-2 col-sm-2 col-md-2 img-mob" data-responsive="../assets/img/kit/senior.jpg 800" data-src="../assets/img/kit/senior.jpg" data-sub-html="
-                                <h4>
-                                <!-- heading of the image -->
-                                This photos title
-                                </h4>
-                                <p>
-                                    <!-- caption starts here... -->
-                                Classic view from Rigwood Jetty on Coniston Water an old archive shot similar to an old post but a little later on.
-                                </p>"
-                                >
-                                    <a href="">
-                                        <img class="img-responsive b-r-6" src="../assets/img/kit/senior.jpg" style="">
-                                    </a>
-                                </li>
-
-                                <li class="col-xs-2 col-sm-2 col-md-2 img-mob" data-responsive="../assets/img/kit/senior.jpg 800" data-src="../assets/img/kit/senior.jpg" data-sub-html="
-                                <h4>
-                                <!-- heading of the image -->
-                                This photos title
-                                </h4>
-                                <p>
-                                    <!-- caption starts here... -->
-                                Classic view from Rigwood Jetty on Coniston Water an old archive shot similar to an old post but a little later on.
-                                </p>"
-                                >
-                                    <a href="">
-                                        <img class="img-responsive b-r-6" src="../assets/img/kit/senior.jpg" style="">
-                                    </a>
-                                </li>
-
-                                <li class="col-xs-2 col-sm-2 col-md-2 img-mob" data-responsive="../assets/img/kit/senior.jpg 800" data-src="../assets/img/kit/senior.jpg" data-sub-html="
-                                <h4>
-                                <!-- heading of the image -->
-                                This photos title
-                                </h4>
-                                <p>
-                                    <!-- caption starts here... -->
-                                Classic view from Rigwood Jetty on Coniston Water an old archive shot similar to an old post but a little later on.
-                                </p>"
-                                >
-                                    <a href="">
-                                        <img class="img-responsive b-r-6" src="../assets/img/kit/senior.jpg" style="">
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
+                    <div class="col-md-10 ml-auto mr-auto photos" >
+                        
 
                     </div>
                 </div>
@@ -270,7 +188,7 @@
                 &copy;
                 <script>
                     document.write(new Date().getFullYear())
-                </script> &nbsp National Insurerance Corporation (T) Limited.
+                </script> &nbsp National Insurance Corporation (T) Limited.
             </div>
         </div>
     </footer>
@@ -304,8 +222,13 @@
     <!-- Material Kit Core initialisations of plugins and Bootstrap Material Design Library -->
     <script src="../assets/js/material-kit.min40a0.js?v=2.0.2"></script>
     <script src="../assets/js/style.js"></script>
+    <script src="../assets/js/api_connection.js"></script>
+    <script src="../assets/js/api_functions.js"></script>
 <script type="text/javascript">
         $(document).ready(function(){
-            $('#lightgallery').lightGallery();
+            $('.lightgallery').lightGallery();
+
+            
         });
+        $(".photos").html(get_photos());
         </script>
