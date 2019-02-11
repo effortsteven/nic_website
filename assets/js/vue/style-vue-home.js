@@ -1,7 +1,7 @@
 new Vue({
 	el: '#mainTitle',
 	data:{
-		nicTitle: 'National Insurance Corparation'
+		nicTitle: 'National Insurance Corporation'
 	}
 });
 
