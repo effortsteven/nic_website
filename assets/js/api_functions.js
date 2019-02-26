@@ -1,18 +1,40 @@
 
 connection = new Connect();
 
-var ip_address = url;
+var ip_address, defaultImage, defaultNewsImage;
+    ip_address = url;
+
+    //default image of news it fails to find from API
+    defaultNewsImage = "golf.jpg"
+
+    //default image of insurance if it fails to find image from API
+    defaultImage = 'product_2.jpg';
 
 function news_feeds() {
     var response = connection.filter_data_form("news_feeds");
     var news_list = [];
     if (response.length > 0) {
         $.each(response, function (index, value) {
-            var news = "<div class='col-lg-12'> <span class='btn btn-social btn-fill btn-info col-lg-4' >" + value.date + value.end_date + "</span ><label class=' col-lg-7 news-cont'>" + value.description + "</label></div >";
+            let url, news;
+            url = "'" + value['link'] + "'";
+            news = `<div class='col-lg-12'> 
+                            <div class=' col-lg-7 btn-info news_dates' >
+                                    <div class='' style="display:inline-block">`
+                                     + value.date + value.end_date + `
+                                    </div>
+                                    <div class='new_news' style="display:inline-block;position:static; float:right">
+                                    New
+                                    </div>
+                            </div>
+                            <div class=' col-lg-12 news-cont' >
+                            ` + value.description.slice(0,50) +`
+                            ....<span style="cursor: pointer;" onClick="open_pager(`+url+`,`+value.id+`)" class="text-info">Read more</span>
+                            </div>
+                        </div >`;
             news_list.push(news);
         });
     } else {
-        news_list = [];
+        news_list.push("<div class='col-lg-12 text-center'><h5 class='text-warning' style='box-shadow:2px 2px 3px 3px rgba(0,0,0,.1); border-radius:6px; padding:5px;'> No news!</h5></div>");
     }
     return news_list;
 }
@@ -59,26 +81,26 @@ function tenders() {
             <div class="modal-body" style="font-size: 13px;">
                   <div class="row">
                       <div class="col-lg-3 col-xs-3 font-weight-bold">
-                          Procuring Entity - Code Number 
+                          Procuring Entity - Code Number
                       </div>
                       <div class="col-lg-9 col-xs-9">
                           `+ tender_number + `
                       </div>
                   </div>
-  
+
                   <hr>
-  
+
                   <div class="row">
                       <div class="col-lg-3 col-xs-3 font-weight-bold">
-                          Tender Number - Tender Category 
+                          Tender Number - Tender Category
                       </div>
                       <div class="col-lg-9 col-xs-9">
                           `+ tender_category + `
                       </div>
                   </div>
-  
+
                   <hr>
-  
+
                   <div class="row">
                       <div class="col-lg-3 col-xs-3 font-weight-bold">
                           Tender Description
@@ -87,9 +109,9 @@ function tenders() {
                           `+ tender_description + `
                       </div>
                   </div>
-  
+
                   <hr>
-  
+
                   <div class="row">
                       <div class="col-lg-3 col-xs-3 font-weight-bold">
                           Eligible Firms
@@ -98,9 +120,9 @@ function tenders() {
                           `+ eligible_firm + `
                       </div>
                   </div>
-  
+
                   <hr>
-  
+
                   <div class="row">
                       <div class="col-lg-3 col-xs-3 font-weight-bold">
                           Method of Procurement
@@ -109,9 +131,9 @@ function tenders() {
                           `+ method_of_procurement + `
                       </div>
                   </div>
-  
+
                   <hr>
-  
+
                   <div class="row">
                       <div class="col-lg-3 col-xs-3 font-weight-bold">
                           Deadline
@@ -135,6 +157,8 @@ function tenders() {
         $(".tender_modal").html(tender_modal_list);
     } else {
         tender_list = [];
+        $('.table-tenders').css('display','none');
+        $('#tenders').html(`<div class="custom-danger-alert alert-animated"><span><i class="icon-alert"></i> &nbsp&nbsp Currently no new Tenders !</span></div>`);
     }
     return tender_list;
 }
@@ -187,42 +211,42 @@ function careers() {
             <div class="modal fade bd-example-modal-lg" id="job-`+ career_id + `" tabindex="-1" role="dialog" aria-labelledby="moreTenderDetails" aria-hidden="true" >
             <div class="modal-dialog modal-lg" role="document" >
               <div class="modal-content b-r-6" style=" z-index: 1000;">
-      
+
                   <div class="top-div  b-r-6">
-                  
+
                       <div class="col-lg-12 col-xs-12 font-weight-bold">
                           <h5>`+ job_title + `</h5>
                       </div>
-      
+
                       <div class="col-lg-12 text-left">
                           <h6 style="text-transform: none;">Job Objectives:</h6>
                           <ul>
                              `+ job_objectives_list + `
                           </ul>
                       </div>
-      
+
                       <div class="col-lg-12 text-left">
                           <h6 style="text-transform: none;">Qualifications and Experience:</h6>
                           <ul>
                           `+ qualification_list + `
                           </ul>
-                          
+
                       </div>
                       <div class="text-right mb-3 mr-2">
-                          
+
                           <button type="button" class="btn btn-danger ml-2 btn-round sys-btn-raise btn-sm" data-dismiss="modal"><i class="icon-cross"></i> Close</button>
-                          <button type="button more-info" class="btn btn-info btn-sm btn-round sys-btn-raise">
+                          <a href="`+value.file_name+`" target="_blank" class="btn btn-info btn-sm btn-round sys-btn-raise" download>
                               <i class="icon-download4"></i> Download PDF
-                          </button>
+                          </a>
                           <button id="apply_form" type="button more-info" class="btn btn-success btn-sm btn-round sys-btn-raise">
                               <i class="icon-checkmark2"></i> Apply Job
                           </button>
-      
+
                       </div>
                   </div>
               <!-- end of top div -->
-                  
-      
+
+
                   <div class="bottom-div  b-r-6 text-center">
                       <h5 class="font-weight-bold">APPLICANTION FORM</h5>
                     <form action="" class="application_form" method="POST">
@@ -278,7 +302,7 @@ function careers() {
                          <label for="exampleInput1" class=" ">Marital Status<span class="text-danger">*</span></label>
 
                          <div>
-                             
+
                          <div class="form-check form-check-radio form-check-inline">
                           <label class="form-check-label">
                             <input class="form-check-input" type="radio" name="marital_status" value="1">
@@ -353,23 +377,23 @@ function careers() {
                                                          <label for="exampleInput1" class="bmd-label-floating ">Division/Grade<span class="text-danger">*</span></label>
                                                          <input type="text" name="pass_by" class="form-control">
                                                     </div>
-                                                </div> 
+                                                </div>
                                            </div>
                                        </div>
 
                                         <div class="col-md-2">
-                                            
+
                                             <button id="edu_btn" class="btn btn-round btn-sm sys-btn-raise btn-info"><i class="icon-plus22" style="font-size: 20px;"></i> Add Row</button>
-                                            
+
                                         </div>
 
                                     </div>
 
 
                                     <div class="row">
-                                        
+
                                         <label class="col-md-12 mt-2">Details of Technical and University education and professional qualifications obtained since leaving school</label>
-                                        
+
                                         <div class="col-md-12" id="uni_div">
                                             <div class="row uni_div">
                                                 <div class="col-md-3">
@@ -405,9 +429,9 @@ function careers() {
                                         </div>
 
                                         <div class="col-md-2">
-                                            
+
                                             <button id="uni_btn" href="" class="btn btn-round btn-sm sys-btn-raise btn-info"><i class="icon-plus22" style="font-size: 20px;"></i> Add Row</button>
-                                            
+
                                         </div>
 
                                     </div>
@@ -421,11 +445,11 @@ function careers() {
                 <div class="text-right mb-3 mr-2">
                     <span id="cancel_form" class="btn btn-round btn-sm sys-btn-raise btn-danger"><i class="icon-cross" style="font-size: 20px; cursor: pointer; color: white"></i>Cancel</span>
                     <span id="send_form" class="btn btn-round btn-sm sys-btn-raise btn-success"><i class="icon-checkmark2" style="font-size: 20px; cursor: pointer; color: white"></i> Send</span>
-                    
+
                 </div>
                     </form>
                   </div>
-      
+
               </div>
             </div>
           </div>
@@ -448,6 +472,10 @@ function careers() {
         });
         $(".career_modal").html(careers_modals_list);
         $(".job-div-mob").html(careers_list_mobile);
+    } else {
+        careers_list = [];
+        $('.job-div').css('display','none');
+        $('#carrier').html(`<div class="custom-danger-alert alert-animated"><span><i class="icon-alert"></i> &nbsp&nbsp Currently no new job vacancy !</span></div>`);
     }
     return careers_list;
 }
@@ -523,7 +551,7 @@ function news_events() {
             if (image_raw.length != 0) {
                 image = image_raw;
             } else {
-                image = "../assets/img/kit/golf.jpg";
+                image = "../assets/img/kit/"+defaultNewsImage;
             }
 
             if (news_type == 1) {
@@ -621,7 +649,7 @@ function get_news_events(url_id) {
                                         </p>
                                     </div>
                                     <div class="col-md-12 mt-3 mb-3 text-right" style="position: absolute; bottom: 0px; width: 100%; ">
-                                        
+
                                         <button onclick="share(`+ news_id + `)" class="share btn btn-fab btn-round btn-sm sys-btn-raise" title="Copy this link" data-toggle="tooltip" data-placement="bottom" style="background: #00a78e">
                                             <i class="material-icons">share</i>
                                         </button>
@@ -716,7 +744,7 @@ function get_photos() {
                 <div class="demo-gallery" >
                     <ul class="list-unstyled row mb-3 lightgallery " style="justify-content: center;">
                     `+
-                    image_list
+                    image_list.join('')
                     + `
                         </ul>
                 </div>
@@ -789,7 +817,7 @@ function get_testimonials() {
         testimonial_list.push(`
         <div class="media-body text-center">
             <p class="text-warning">
-                <span><i class="icon-warning "></i></span>&nbsp &nbsp Fail to load data...! 
+                <span><i class="icon-warning "></i></span>&nbsp &nbsp Fail to load data...!
             </p>
         </div>
         `);
@@ -799,7 +827,7 @@ function get_testimonials() {
 
 //get videos from APIs
 function get_videos() {
-    var response, videoList = [], videoAds = [], video_raw, video_url, video_title, video_ad, videoNonAds = [], video_channel, videoNonAdsLength;
+    var response, videoList = [], videoAds = [], video_url, video_title, video_ad, videoNonAds = [], video_channel, videoNonAdsLength;
     response = connection.filter_data_form("gallery");
     var limiter;
     if (response.length > 0) {
@@ -812,7 +840,7 @@ function get_videos() {
                 video_channel = value['channel'];
 
                 if (video_channel != '') {
-                    $('.channel_sub').html(`<label style="color: rgba(60, 72, 88,1);font-size: 16px">Visit Our Official Youtube Channel 
+                    $('.channel_sub').html(`<label style="color: rgba(60, 72, 88,1);font-size: 16px">Visit Our Official Youtube Channel
                             <a href="`+ video_channel + `" class="btn btn-danger btn-round sys-btn-raise btn-sm" ><i class="icon-youtube"></i>
                             &nbsp&nbsp Youtube
                             </a></label>`);
@@ -855,7 +883,7 @@ function get_videos() {
 
                         <div class="vid-hover-div">
                         </div>
-                        
+
                         <!-- youtube url -->
                         <a href="`+ videoNonAds[videoNonAdsLength].url + `" class="btn btn-danger btn-round sys-btn-raise btn-sm btn-play" ><i class="icon-play4"></i>&nbsp &nbsp Play
                         </a>
@@ -874,7 +902,483 @@ function get_videos() {
         if (videoList.length > 0) {
             $('.video_disp_container').html(videoList);
         } else {
-            $('.video_disp_container').html(``);
+            $('.video_disp_container').html(`
+
+            <div class="danger-alert-vid">
+            <!-- place here NIC Youtube channel URL -->
+               <a href="`+ video_channel + `" class="text-danger" title="NIC Youtube Channel">No New Videos!, Visit our official Youtube channel.</a>
+           </div>
+            `);
         }
     }
+}
+
+
+//get products from APIs
+function get_life_products() {
+
+    //product_type = 1, means life product
+
+    var response = [], productContainerList = [], productList = [], product_image,
+    product_link, product_description, product_has_child,
+    product_title, childList = [], product_child_title,
+    product_child_image, product_child_description,
+    product_child_link, product_id, product_type, productsSideBar= [];
+
+    response = connection.filter_data_form("products");
+
+    if (response.length > 0) {
+        $.each(response, function (index, value) {
+            product_type    = value['product_type'];
+            product_title   = value['product_title'];
+            product_id      = value['product_id'];
+            product_image   = value['product_image'];
+            product_link    = value['product_link'];
+            product_description = value['product_description'];
+            childList       = value['child_list'];
+            product_has_child   = value['product_has_child'];
+            // product_child_title = value['product_child_title'];
+            // product_child_image = value['product_child_image'];
+            // product_child_link  = value['product_child_link '];
+            // product_child_description   = value['product_child_description'];
+
+            if (product_type==1 && product_title!='') {
+                product_image==null ?(
+                    product_image = '../../assets/img/kit/products/'+defaultImage+''
+                        ) : (
+                            product_image = product_image
+                )
+                    //loop prouct names sidebar
+                    productList.push({
+                        "title":product_title,
+                        "id":product_id,
+                        'image':product_image,
+                        'url':product_link,
+                        'description':product_description,
+                        'childArry':childList,
+                        'has_child':product_has_child
+
+                    });
+
+
+            }
+        });
+        $.each(productList, function (index, value){
+            if (index==0) {
+                productsSideBar.push(`
+                <li class="nav-item">
+                            <a class="nav-link active" href="#tab`+index+`" data-toggle="tab">`+value.title+`</a>
+                </li>
+                `);
+
+                if (value.has_child==true ) {
+
+                    let childLooper =  [];
+                    $.each(value.childArry, function(index,value){
+                        let image = value.product_child_image;
+                        image==null ? (
+                            image = '../../assets/img/kit/products/'+defaultImage+''
+                        ):(
+                            image = image
+                        );
+                        childLooper.push(`
+                        <div class="col-md-6">
+                        <div class="card card-blog">
+                            <div class="card-header card-header-image">
+                                <a>
+                                    <img src="`+image+`" alt="">
+                                </a>
+                            </div>
+                            <div class="card-body">
+                                <h6 class="card-title">
+                                    `+value.product_child_title+`
+                                </h6>
+                                <p class="">
+                                `+value.product_child_description+`
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                        `);
+                    });
+
+                    productContainerList.push(`
+                    <div class="tab-pane" id="tab`+index+`">
+                        <div class="sys-color-text" style="margin-bottom: 5px">
+                            <i class=" icon-pencil-ruler" style="font-size: 30px;"></i>
+                            <h4 class="info-title" style="display: inline-table;">`+value.title+` &nbsp&nbsp&nbsp `+product_btn(value.url)+`</h4>
+                            <div class="row">
+                                `+
+                                 childLooper.join('')
+                                +`
+                            </div>
+                        </div>
+
+                        <h5 class="info-title">For more info Call (Free): 080 011 0041</h5>
+
+                    </div>
+                    `);
+
+
+                }else{
+                    productContainerList.push(`
+                    <div class="tab-pane active" id="tab`+index+`">
+
+                        <div class="col-md-12">
+                            <div class=" card-blog">
+                            <div class="row ">
+                                <div class="card-header col-md-4" style="position: relative;padding: 0;z-index: 1;margin-left: 15px;margin-right: 15px;margin-top: -30px;border-radius: 6px;box-shadow: none;background: none;border-bottom:none;">
+                                    <a>
+                                        <img src="`+value.image+`" alt="" style="width: 100%;border-radius: 6px;pointer-events: none;box-shadow: 0 5px 25px -8px rgba(0, 0, 0, .54), 0 8px 20px -5px rgba(0, 0, 0, .2)">
+                                    </a>
+                                </div>
+                                <div class="card-body col-md-7">
+                                    <h5 class="card-title">
+                                        `+value.title+`
+                                        &nbsp&nbsp&nbsp `+product_btn(value.url)+`
+                                    </h5>
+                                    <p class="">
+                                        `+value.description+`
+                                    </p>
+                                    <h5 class="info-title">
+                                        For more info Call (Free): 080 011 0041
+                                    </h5>
+                                    &nbsp&nbsp&nbsp `+product_btn(value.url)+`
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    `)
+                }//end inner IF of the index==0
+             } else {
+
+                productsSideBar.push(`
+                <li class="nav-item">
+                            <a class="nav-link" href="#tab`+index+`" data-toggle="tab">`+value.title+`</a>
+                </li>
+                `);
+
+                if (value.has_child==true) {
+
+                    let childLooper =  [];
+                    $.each(value.childArry, function(index,value){
+
+                    let image = value.product_child_image;
+                    image==null ? (
+                        image = '../../assets/img/kit/products/'+defaultImage+''
+                    ):(
+                        image = image
+                    );
+                        childLooper.push(`
+                        <div class="col-md-6">
+                        <div class="card card-blog">
+                            <div class="card-header card-header-image">
+                                <a>
+                                    <img src="`+image+`" alt="">
+                                </a>
+                            </div>
+                            <div class="card-body">
+                                <h6 class="card-title">
+                                    `+value.product_child_title+`
+                                </h6>
+                                <p class="">
+                                `+value.product_child_description+`
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                        `);
+                    });
+
+                    productContainerList.push(`
+                    <div class="tab-pane" id="tab`+index+`">
+                        <div class="sys-color-text" style="margin-bottom: 5px">
+                            <i class=" icon-pencil-ruler" style="font-size: 30px;"></i>
+                            <h4 class="info-title" style="display: inline-table;">`+value.title+` &nbsp&nbsp&nbsp `+product_btn(value.product_child_link)+`</h4>
+                            <div class="row">
+                                `+
+                                 childLooper.join('')
+                                +`
+                            </div>
+                        </div>
+
+                        <h5 class="info-title">For more info Call (Free): 080 011 0041</h5>
+
+                    </div>
+                    `);
+
+
+                }else{
+                    productContainerList.push(`
+                    <div class="tab-pane" id="tab`+index+`">
+
+                    <div class="col-md-12">
+                        <div class=" card-blog">
+                          <div class="row ">
+                            <div class="card-header col-md-4" style="position: relative;padding: 0;z-index: 1;margin-left: 15px;margin-right: 15px;margin-top: -30px;border-radius: 6px;box-shadow: none;background: none;border-bottom:none;">
+                                <a>
+                                    <img src="`+value.image+`" alt="" style="width: 100%;border-radius: 6px;pointer-events: none;box-shadow: 0 5px 25px -8px rgba(0, 0, 0, .54), 0 8px 20px -5px rgba(0, 0, 0, .2)">
+                                </a>
+                            </div>
+                            <div class="card-body col-md-7">
+                                <h5 class="card-title">
+                                    `+value.title+`
+                                    &nbsp&nbsp&nbsp `+product_btn(value.url)+`
+                                </h5>
+                                <p class="">
+                                    `+value.description+`
+                                </p>
+                                <h5 class="info-title">
+                                    For more info Call (Free): 080 011 0041
+                                </h5>
+                                &nbsp&nbsp&nbsp `+product_btn(value.url)+`
+                            </div>
+                          </div>
+                        </div>
+                    </div>
+
+                </div>
+                    `)
+                }
+                }// end main if
+        });
+        $('.product_names_loop').html(productsSideBar);
+        $('.tab-div').html(productContainerList);
+
+    }
+
+}
+
+//get non life products
+function get_non_life_products() {
+
+     //product_type = 2, means non life product
+
+    var response, product_link, product_description, product_image, product_title
+    ,childList = [],product_id, product_type, productNameList = [], productList = [], productContainerList = [];
+    response = connection.filter_data_form("products");
+    if (response.length > 0) {
+        $.each(response, function (index, value) {
+            product_id = value['product_id'];
+            product_link = value['product_link'];
+            product_title = value['product_title'];
+            product_description = value['product_description'];
+            product_title = value['product_title'];
+            product_title = value['product_title'];
+            product_image = value['product_image'];
+            product_has_child = value['product_has_child']
+            product_type = value['product_type'];
+            childList = value['child_list'];
+
+            product_image==null ? (product_image = '../../assets/img/kit/products/'+defaultImage+'') : (product_image = product_image)
+
+            if (product_type == 2 && product_title != '') {
+                productList.push({
+                    'product_id':product_id,
+                    'product_title': product_title,
+                    'image':product_image,
+                    'product_has_child': product_has_child,
+                    'product_description':product_description,
+                    'url':product_link,
+                    'childArry':childList,
+                });
+            }
+
+        });
+
+        $.each(productList, function(index, value){
+            if(index==0){
+                productNameList.push(` <li class="nav-item">
+                <a class="nav-link active" href="#tab`+value['product_id']+`" data-toggle="tab">`+value['product_title']+`</a>
+            </li>`);
+
+            if (value.product_has_child == true) {
+                let childLooper =  [];
+                $.each(value.childArry, function(index,value){
+                    let image = value.product_child_image;
+                    image==null ? (
+                        image = '../../assets/img/kit/products/'+defaultImage+''
+                    ):(
+                        image = image
+                    );
+                    childLooper.push(`
+                    <div class="col-md-6">
+                    <div class="card card-blog">
+                        <div class="card-header card-header-image">
+                            <a>
+                                <img src="`+image+`" alt="">
+                            </a>
+                        </div>
+                        <div class="card-body">
+                            <h6 class="card-title">
+                                `+value.product_child_title+`
+                            </h6>
+                            <p class="">
+                            `+value.product_child_description+`
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                    `);
+                });
+
+                productContainerList.push(`
+                <div class="tab-pane" id="tab`+value.product_id+`">
+                    <div class="sys-color-text" style="margin-bottom: 5px">
+                        <i class=" icon-pencil-ruler" style="font-size: 30px;"></i>
+                        <h4 class="info-title" style="display: inline-table;">`+value.product_title+` &nbsp&nbsp&nbsp `+product_btn(value.url)+`</h4>
+                        <div class="row">
+                            `+
+                             childLooper.join('')
+                            +`
+                        </div>
+                    </div>
+
+                    <h5 class="info-title">For more info Call (Free): 080 011 0041</h5>
+
+                </div>
+                `);
+
+            } else {
+                productContainerList.push(` <div class="tab-pane active" id="tab`+value.product_id+`">
+                <div class="col-md-12">
+                    <div class=" card-blog">
+                      <div class="row ">
+                        <div class="card-header col-md-4" style="position: relative;padding: 0;z-index: 1;margin-left: 15px;margin-right: 15px;margin-top: -30px;border-radius: 6px;box-shadow: none;background: none;border-bottom:none;">
+                            <a>
+                            <img src="`+value.image+`" alt="" style="width: 100%;border-radius: 6px;pointer-events: none;box-shadow: 0 5px 25px -8px rgba(0, 0, 0, .54), 0 8px 20px -5px rgba(0, 0, 0, .2)">
+                            </a>
+                        </div>
+                        <div class="card-body col-md-7">
+                            <h5 class="card-title">
+                               `+value.product_title+`
+                                &nbsp&nbsp `+product_btn(value.url)+`
+                            </h5>
+                            <p class="">
+                            `+value.product_description+`
+                            </p>
+                            <h5 class="info-title">
+                                For more info Call (Free): 080 011 0041
+                            </h5>
+                            &nbsp&nbsp `+product_btn(value.url)+`
+                        </div>
+                      </div>
+                    </div>
+                </div>
+
+            </div>`);
+
+            }
+
+            } else {
+                productNameList.push(`<li class="nav-item">
+                <a class="nav-link" href="#tab`+value['product_id']+`" data-toggle="tab">`+value['product_title']+`</a>
+            </li>`);
+
+            if (value.product_has_child == true) {
+
+
+                let childLooper =  [];
+                $.each(value.childArry, function(index,value){
+
+                let image = value.product_child_image;
+                image==null ? (
+                    image = '../../assets/img/kit/products/'+defaultImage+''
+                ):(
+                    image = image
+                );
+                    childLooper.push(`
+                    <div class="col-md-6">
+                    <div class="card card-blog">
+                        <div class="card-header card-header-image">
+                            <a>
+                                <img src="`+image+`" alt="">
+                            </a>
+                        </div>
+                        <div class="card-body">
+                            <h6 class="card-title">
+                                `+value.product_child_title+`
+                            </h6>
+                            <p class="">
+                            `+value.product_child_description+`
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                    `);
+                });
+
+                productContainerList.push(`
+                <div class="tab-pane" id="tab`+value.product_id+`">
+                    <div class="sys-color-text" style="margin-bottom: 5px">
+                        <i class=" icon-pencil-ruler" style="font-size: 30px;"></i>
+                        <h4 class="info-title" style="display: inline-table;">`+value.product_title+` &nbsp&nbsp&nbsp `+product_btn(value.product_child_link)+`</h4>
+                        <div class="row">
+                            `+
+                             childLooper.join('')
+                            +`
+                        </div>
+                    </div>
+
+                    <h5 class="info-title">For more info Call (Free): 080 011 0041</h5>
+
+                </div>
+                `);
+
+
+            } else {
+                productContainerList.push(` <div class="tab-pane" id="tab`+value.product_id+`">
+                <div class="col-md-12">
+                    <div class=" card-blog">
+                      <div class="row ">
+                        <div class="card-header col-md-4" style="position: relative;padding: 0;z-index: 1;margin-left: 15px;margin-right: 15px;margin-top: -30px;border-radius: 6px;box-shadow: none;background: none;border-bottom:none;">
+                            <a>
+                                <img src="`+value.image+`" alt="" style="width: 100%;border-radius: 6px;pointer-events: none;box-shadow: 0 5px 25px -8px rgba(0, 0, 0, .54), 0 8px 20px -5px rgba(0, 0, 0, .2)">
+                            </a>
+                        </div>
+                        <div class="card-body col-md-7">
+                            <h5 class="card-title">
+                               `+value.product_title+`
+                                &nbsp&nbsp `+product_btn(value.url)+`
+                            </h5>
+                            <p class="">
+                            `+value.product_description+`
+                            </p>
+                            <h5 class="info-title">
+                                For more info Call (Free): 080 011 0041
+                            </h5>
+                            &nbsp&nbsp `+product_btn(value.url)+`
+                        </div>
+                      </div>
+                    </div>
+                </div>
+
+            </div>`);
+          
+            }
+            }
+
+
+        });
+
+        $('.tab-list').html(productNameList);
+        $('.tab-div').html(productContainerList);
+
+    }
+
+
+}
+
+function product_btn(url){
+    let btn;
+    url != null ? (
+     btn = `<a href="`+url+`" class="btn btn-sys-color btn-sm btn-round sys-btn-raise pull-right-1" style="text-transform: none;">
+                    <i class="icon-cart4"></i>&nbsp&nbsp Purchase Bima
+                </a>`
+    ):(
+        btn = ''
+    )
+        return btn;
 }

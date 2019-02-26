@@ -33,7 +33,8 @@
 }
 
 // pull up botton
-$('body').prepend('<a href="#" id="mytop"><i class="icon-arrow-up32"></i></a>');
+// $('body').prepend('<a href="#" id="mytop"><i class="icon-arrow-up32"></i></a>');
+$('body').prepend(`<a id="mytop" href="#" class=" btn btn-just-icon btn-round"><i class="fab-icon-open material-icons">keyboard_arrow_up</i></a>`);
 
 // add to head link
 
@@ -140,3 +141,83 @@ function isEmail(email) {
       });
     });
 // end page loader
+
+// ---------------------CHAT BOX JS------------------------
+$(".chat-div-messages").animate({ scrollTop: $(document).height() }, "slow");
+
+var userName;
+            
+function newMessage() {
+    let message = $(".chat-div .message-input input").val();
+    let num = $('.chat-div-header .user-num').text();
+    if($.trim(message) == '') {
+        return false;
+    }
+    let d = new Date();
+        let dd = d.getDate();
+        let mm = d.getMonth() + 1;
+        let yy = d.getFullYear();
+        let min = d.getMinutes();
+        let sec = d.getSeconds();
+        let dis = dd+'-'+mm+'-'+yy+ ' '+min+':'+sec;
+    $(`<div class="col-lg-12 sent"><p style="margin-bottom:0;">` + message +`</p><small style="font-size:10px; color: wheat; float: right">
+            <span style="font-size:8px; color: white">
+                `+dis+`
+            </span>
+            Delivered
+        </small></div>`).appendTo($('.chat-div-messages'));
+    $('.message-input input').val(null);
+    $(".chat-div-messages").animate({ scrollTop: $(document).height() }, 1500);
+
+    let data = [];
+    let test = JSON.parse( localStorage.getItem(num));
+    if(test){
+      data = JSON.parse( localStorage.getItem(num));
+    }
+    var meseg_id = Math.random();
+var list  = 
+    {
+      meseg_id: meseg_id,
+   content: message,
+   time: dis
+   }
+   ;
+   data.push(list);
+  //  data.pop();
+   console.log(data);
+localStorage.setItem(num,JSON.stringify(data));
+
+};
+
+  function get_num(){
+    let num  = $(".chat-div-num .message-input input").val();
+    userName = $(".chat-div-num .message-input input").val();
+    if($.trim(num) == '') {
+      return false;
+    }
+    $('.user-num').text(num);
+    $('.chat-div').css('display','inline-block');
+    $('.chat-div-num').css('display','none');
+    
+    let data = [];
+    data = JSON.parse( localStorage.getItem('sent_3'));
+    if(data){
+      console.log('available')
+    }
+  }
+
+$('.submit').click(function() {
+  newMessage();
+});
+
+$('.submit-num').click(function(){
+  get_num();
+});
+
+$(window).on('keydown', function(e) {
+  if (e.which == 13) {
+    newMessage();
+    return false;
+  }
+});
+// --------------------------CHAT BOX ENDS JS HERE---------------
