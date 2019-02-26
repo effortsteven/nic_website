@@ -2,8 +2,8 @@
 var response_data, url, developerToken;
 
 // CMS server IP address
-// url = "https://motor.nictanzania.co.tz/";
-url = "http://192.168.137.219:8000/";
+url = "https://motor.nictanzania.co.tz/";
+// url = "http://192.168.137.219:8000/";
 
 // developerToken to access NIC APIs
 developerToken = "KZ3O5ONX0UZDRV7217LDGSWOXYK6SYLG";
