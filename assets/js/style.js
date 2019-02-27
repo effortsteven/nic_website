@@ -221,3 +221,23 @@ $(window).on('keydown', function(e) {
   }
 });
 // --------------------------CHAT BOX ENDS JS HERE---------------
+
+//welcome note animation
+
+function animate_text(text_val){
+  
+var text, index, el, first_text;
+el = document.getElementById('animate_text');
+text = text_val;
+first_text = el.innerText;
+index = 0;
+
+setInterval(function(){
+    el.innerHTML = el.innerHTML + text[index];
+    index = index + 1;
+    if(index>text.length){
+        index=0;
+        el.innerHTML = first_text;
+    } 
+},200)
+}

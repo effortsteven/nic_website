@@ -10,6 +10,7 @@ var ip_address, defaultImage, defaultNewsImage;
     //default image of insurance if it fails to find image from API
     defaultImage = 'product_2.jpg';
 
+//get news feeds
 function news_feeds() {
     var response = connection.filter_data_form("news_feeds");
     var news_list = [];
@@ -39,6 +40,7 @@ function news_feeds() {
     return news_list;
 }
 
+//get tenders 
 function tenders() {
     var response = connection.filter_data_form("tenderlist");
     var tender_list = [];
@@ -163,6 +165,7 @@ function tenders() {
     return tender_list;
 }
 
+//get job data
 function careers() {
     var response = connection.filter_data_form("careerlist");
     var job_objectives_list_response = connection.filter_data_form("job_objectives_list");
@@ -480,6 +483,7 @@ function careers() {
     return careers_list;
 }
 
+//get images slide show for index.html
 function home_slideshow() {
     var response = connection.filter_data_form("gallery");
     var slideshow_list = [];
