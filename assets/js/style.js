@@ -43,9 +43,10 @@ $('head').append('<link href="https://fonts.googleapis.com/css?family=Open+Sans"
 // scroll button styled
 $(window).scroll(function(){
     if ($(window).scrollTop() > 200){
-        $('#mytop').fadeIn('fast');
+        $('#mytop').fadeIn(3000);
+        $('#mytop').css('bottom','20px');
     }else{
-        $('#mytop').fadeOut(1500);
+      $('#mytop').css('bottom','-50px');
     }
 });
 

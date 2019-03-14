@@ -146,6 +146,7 @@ a:hover{
 	border-top-right-radius: 3px;
 	margin-bottom: 5px;
 	padding-top: 3px;
+	color:#4f5962
 	 /* overflow: hidden;text-overflow: ellipsis;vertical-align: middle;  */
 }
 .new_news{
@@ -271,22 +272,13 @@ nav .active .dropdown-toggle:after{
 }
 #mytop {  
 		right: 20px; 
-		bottom: 20px;
+		bottom: -50px;
     z-index: 1000;
-    /* width: 50px;  */
     color: white;
-    /* bottom: 20px;
-    height: 50px; 
-    border: none; */
     display: none; 
-    /* padding: 12px; 
-    outline: none;  */
     position: fixed; 
-    /* cursor: pointer;
-    text-align: center;
-    border-radius: 30px;
-    vertical-align: middle; */
-    background-color: rgba(5, 120, 85,1); 
+		background-color: rgba(5, 120, 85,1); 
+		transition: bottom 1s ease-in-out;
 }
 #mytop i{
     font-size: 30px;

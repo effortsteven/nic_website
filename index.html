@@ -152,7 +152,7 @@
                                                 
                                                 <h2 id="animate_text" class="title " style="font-family:'Samsung Sharp Sans Regular Regular';">W</h2>
                                                 <h4>The number one Tanzanian Insurance company, that has been serving Tanzania <br>
-                                                for about <span id="app-time"></span> years with reliable services at affordable prices.</h4>
+                                                for about <span class="app-time"></span> years with reliable services at affordable prices.</h4>
                                                 <br>
                                                 <h5 class="call-us-mid">
                                                     Let's hear from you
@@ -234,26 +234,30 @@
             </div>
         </div>
         <div class="cd-section">
-            <div class="container text-center">
+            <div class="container text-center" >
                 <div class="row">
-                    <div class="col-md-8 ml-auto mr-auto">
-                        <h2 class="">Why our insurance corporation is the best</h2>
-                        <h5 class="description">more on convincing clients shud be interested based on claims and benefits.............</h5>
+                    <div class="col-md-10 ml-auto mr-auto">
+                        <h2 class="sys-color-text">Why insure with NIC</h2>
+                        <h5 class="descriptio" style="color:#4f5962">
+                            We have over <span class="app-time"></span> years of experience and operating in every 
+                            region in Tanzania. NIC has proven to be a reliable partner so let us walk your journey with you.
+                        </h5>
                     </div>
                 </div>
                 <div class="row">
-                        <div class="col-md-4">
+                        <div class="col-md-6">
                             <div class="info">
                                 <div class="icon icon-info">
                                     <i class="material-icons">info</i>
                                 </div>
                                 <h4 class="info-title" style="font-family:SamsungSharpSans-Bold">Notify Your Claim</h4>
-                                <p>
-                                    how to notify us....
+                                <p style="color:#4f5962">
+                                    We understand claims can be a headache. In the case of an unfortunate event, 
+                                    NIC will hold your hand and work with you through the claims process.
                                 </p>
                             </div>
                         </div>
-                        <div class="col-md-4">
+                        <!-- <div class="col-md-4">
                             <div class="info">
                                 <div class="icon icon-inf">
                                     <i class="material-icons">schedule</i>
@@ -263,15 +267,15 @@
                                     how process in time......
                                 </p>
                             </div>
-                        </div>
-                        <div class="col-md-4">
+                        </div> -->
+                        <div class="col-md-6">
                             <div class="info">
                                 <div class="icon icon-success">
                                     <i class="material-icons">check_circle</i>
                                 </div>
                                 <h4 class="info-title" style="font-family:SamsungSharpSans-Bold">Response</h4>
-                                <p>
-                                    how we provide our feedbak.....
+                                <p style="color:#4f5962">
+                                    Customer first is one of our key values. Your claim will be process at the minimum time as can possibly be done.
                                 </p>
                             </div>
                         </div>
@@ -601,7 +605,7 @@ $(document).ready(function(){
      $(".picture_list").html(home_slideshow().slice(0, 10));
 });
 
-$('#app-time').text(now());
+$('.app-time').text(now());
 
 
 // on click subscribe button send email to database
