@@ -1363,6 +1363,9 @@ iframe{
 	.brk-txt-mob{
 		display: block
 	}
+	.nbs-flexisel-item{
+		width: 270px !important;
+	}
 }
 
 @media (max-height: 504px){
@@ -1397,6 +1400,9 @@ iframe{
 	.t_c_top_title h1{
 		font-size: 27px;
 	}
+	.nbs-flexisel-item{
+		width: 190px !important;
+	}
 }
 @media (max-width: 320px){
 	.land-page-cont-1{
@@ -1416,6 +1422,9 @@ iframe{
 	}
 	.navbar-brand{
 	margin-left: -20px;
+	}
+	.nbs-flexisel-item{
+		width: 200px !important;
 	}
 }
 /*------------keyframes amd animation----------------*/
