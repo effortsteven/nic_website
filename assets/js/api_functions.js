@@ -5,7 +5,7 @@ var ip_address, defaultImage, defaultNewsImage;
     ip_address = url;
 
     //default image of news it fails to find from API
-    defaultNewsImage = "golf.jpg"
+    defaultNewsImage = "no_img.png"
 
     //default image of insurance if it fails to find image from API
     defaultImage = 'product_2.jpg';
@@ -18,18 +18,18 @@ function news_feeds() {
         $.each(response, function (index, value) {
             let url, news;
             url = "'" + value['link'] + "'";
-            news = `<div class='col-lg-12'> 
-                            <div class=' col-lg-7 btn-info news_dates' >
-                                    <div class='' style="display:inline-block">`
+            news = `<div class='col-lg-12 feeds_div'> 
+                            <div class=' col-lg-9 col-md-12 col-sm-12 btn-info news_dates' >
+                                    <div class='col-news-date' style="display:inline-block">`
                                      + value.date + value.end_date + `
                                     </div>
-                                    <div class='new_news' style="display:inline-block;position:static; float:right">
+                                    <div class='new_news'>
                                     New
                                     </div>
                             </div>
                             <div class=' col-lg-12 news-cont' >
                             ` + value.description.slice(0,50) +`
-                            ....<span style="cursor: pointer;" onClick="open_pager(`+url+`,`+value.id+`)" class="text-info">Read more</span>
+                            ....<span style="cursor: pointer;" onClick="open_pager(`+value.id+`)" class="text-info">Read more</span>
                             </div>
                         </div >`;
             news_list.push(news);
@@ -540,15 +540,14 @@ function news_events() {
 
     if (response.length > 0) {
         $.each(response, function (index, value) {
-            var date, news_type, news_id, description, end_date, title, download_link, image, image_raw, page_url, download_link_raw;
+            var date, news_type, news_id, description, end_date, title, download_link, image, image_raw, page_url, download_btn;
             date = value['date'];
             news_type = value['news_type'];
             description = value['description'];
             end_date = value['end_date'];
             title = value['title'];
             news_id = value['id'];
-            download_link_raw = value['file_name'];
-            download_link = download_link_raw;
+            download_link = value['file_name'];
             page_url = "'" + value['link'] + "'";
             image_raw = value['image'];
 
@@ -556,6 +555,11 @@ function news_events() {
                 image = image_raw;
             } else {
                 image = "../assets/img/kit/"+defaultNewsImage;
+            }
+            if (download_link.length != 0){
+                download_btn = '<a href="' + download_link + '" download class="btn btn-fab btn-round btn-sm sys-btn-raise" title="Download File" data-toggle="tooltip" data-placement="bottom" style="background: #6a737b"><i class="material-icons">get_app</i></a>'
+            }else{
+                download_btn = '';
             }
 
             if (news_type == 1) {
@@ -575,9 +579,7 @@ function news_events() {
                     '<!-- provide a news url -->' +
                     '<button onclick="open_pager(' + page_url + ',' + news_id + ')" class="btn btn-fab btn-round btn-sm sys-btn-raise" title="Visit page" data-toggle="tooltip" data-placement="bottom" style="background: #037ef3"><i class="material-icons">open_in_new</i>' +
                     '</button><button onclick="share(' + news_id + ')" class="share btn btn-fab btn-round btn-sm sys-btn-raise" title="Copy this link" data-toggle="tooltip" data-placement="bottom" style="background: #00a78e"><i class="material-icons">share</i></button>' +
-                    '<button onclick="send_mail(' + news_id + ')" class="btn btn-fab btn-round btn-rose btn-sm sys-btn-raise" title="Recieve as mail" data-toggle="tooltip" data-placement="bottom"><i class="material-icons">email</i></button>' +
-                    '<a href="' + download_link + '" download class="btn btn-fab btn-round btn-sm sys-btn-raise" title="Download File" data-toggle="tooltip" data-placement="bottom" style="background: #6a737b">' +
-                    '<i class="material-icons">get_app</i></a></div></div></div></div>');
+                    '<button onclick="send_mail(' + news_id + ')" class="btn btn-fab btn-round btn-rose btn-sm sys-btn-raise" title="Recieve as mail" data-toggle="tooltip" data-placement="bottom"><i class="material-icons">email</i></button>' + download_btn +'</div></div></div></div>');
             } else if (news_type == 2) {
                 news_events.push('<div class="news-div col-md-12 mt-3 mb-3 events"><div class="row"><div class="col-md-5" style=" padding: 0px 0px;">' +
                     '<img class="news-img" src="' + image + '" >' +
@@ -595,9 +597,7 @@ function news_events() {
                     '<!-- provide a news url -->' +
                     '<button onclick="open_pager(' + page_url + ',' + news_id + ')" class="btn btn-fab btn-round btn-sm sys-btn-raise" title="Visit page" data-toggle="tooltip" data-placement="bottom" style="background: #037ef3"><i class="material-icons">open_in_new</i>' +
                     '</button><button onclick="share(' + news_id + ')" class="share btn btn-fab btn-round btn-sm sys-btn-raise" title="Copy this link" data-toggle="tooltip" data-placement="bottom" style="background: #00a78e"><i class="material-icons">share</i></button>' +
-                    '<button onclick="send_mail(' + news_id + ')" class="btn btn-fab btn-round btn-rose btn-sm sys-btn-raise" title="Recieve as mail" data-toggle="tooltip" data-placement="bottom"><i class="material-icons">email</i></button>' +
-                    '<a href="' + download_link + '" class="btn btn-fab btn-round btn-sm sys-btn-raise" title="Download File" data-toggle="tooltip" data-placement="bottom" style="background: #6a737b" download>' +
-                    '<i class="material-icons">get_app</i></a></div></div></div></div>');
+                    '<button onclick="send_mail(' + news_id + ')" class="btn btn-fab btn-round btn-rose btn-sm sys-btn-raise" title="Recieve as mail" data-toggle="tooltip" data-placement="bottom"><i class="material-icons">email</i></button>' + download_btn +'</div></div></div></div>');
             }
         });
     } else {
@@ -617,22 +617,26 @@ function get_news_events(url_id) {
 
     if (response.length > 0) {
         $.each(response, function (index, value) {
-            var date, news_type, news_id, description, end_date, title, download_link, image, image_raw, page_url, download_link_raw;
+            var date, news_type, news_id, description, end_date, title, download_link, image, image_raw, page_url;
             date = value['date'];
             news_type = value['news_type'];
             description = value['description'];
             end_date = value['end_date'];
             title = value['title'];
             news_id = value['id'];
-            download_link_raw = value['file_name'];
-            download_link = download_link_raw
+            download_link  = value['file_name'];
             page_url = "'" + value['link'] + "'";
             image_raw = value['image'];
 
             if (image_raw.length != 0) {
                 image = image_raw;
             } else {
-                image = "../assets/img/kit/golf.jpg";
+                image = "../assets/img/kit/"+defaultNewsImage;
+            }
+            if (download_link.length != 0){
+                download_btn = '<a href="' + download_link + '" download class="btn btn-fab btn-round btn-sm sys-btn-raise" title="Download File" data-toggle="tooltip" data-placement="bottom" style="background: #6a737b"><i class="material-icons">get_app</i></a>'
+            }else{
+                download_btn = '';
             }
 
             if (news_id == url_id) {
@@ -660,8 +664,7 @@ function get_news_events(url_id) {
                                         <button onclick="send_mail(`+ news_id + `)" class="btn btn-fab btn-round btn-rose btn-sm sys-btn-raise" title="Recieve as mail" data-toggle="tooltip" data-placement="bottom">
                                             <i class="material-icons">email</i>
                                         </button>
-                                        <a href="` + download_link + `" download class="btn btn-fab btn-round btn-sm sys-btn-raise" title="Download File" data-toggle="tooltip" data-placement="bottom" style="background: #6a737b">
-                                                    <i class="material-icons">get_app</i></a>
+                                        ` + download_btn + `
                                     </div>
                                 </div>
                                 `);
@@ -682,18 +685,29 @@ function get_branches() {
         $.each(response, function (index, value) {
             branches_list.push(`
                                 <div class="col-lg-4">
-                                    <div class="card card-contact card-raised">
+                                    <div class="card card-contact card-raised pop-branch">
                                         <div class="card-header card-header-info text-center">
                                             <h4 class="card-title" style="font-family:'Samsung Sharp Sans Regular Regular' ">
-                                            <span style="font-size:15px">`+ value.name + `</span><span style="font-size:12px"> / ` + value['district'] + `</span>
+                                            `+ value.name + `
                                             </h4>
                                         </div>
                                         <div class="card-body">
                                             <div class="row">
 
-                                               <div class="col-lg-12">
-                                                    <label class="col-lg-12" style="color: grey"><i class="icon-phone"></i>&nbsp&nbsp&nbsp&nbsp`+ value.branch_manager_phone + ` </label>
-                                                    <label class="col-lg-12"><a href="#" onclick="view_more('`+ value.id + `')" style="color:rgb(0, 151, 167) "><i class="icon-location4"></i>&nbsp&nbsp&nbsp&nbsp view more</a></label>
+                                               <div class="col-lg-12 text-left">
+                                                    <label class="col-lg-12" style="color: grey">
+                                                        <div class="row">
+                                                            <div class="col-sm-2" style="width:20%"><i class="icon-location4"></i></div>
+                                                            <div class="col-sm-10" style="width:80%">`+ value.district + `, `+ value.street + `</div>
+                                                        </div>
+                                                    </label>
+                                                    <label class="col-lg-12" style="color: grey">
+                                                        <div class="row">
+                                                            <div class="col-sm-2" style="width:20%"><i class="icon-phone"></i></div>
+                                                            <div class="col-sm-10" style="width:80%">`+ value.branch_manager_phone + `</div>
+                                                        </div>
+                                                    </label>
+                                                    <label class="col-lg-12"><a href="#" onclick="view_more('`+ value.id + `')" style="color:rgb(0, 151, 167) "><i class="icon-circle-right2"></i>&nbsp&nbsp&nbsp&nbsp View more</a></label>
                                                </div>
 
                                             </div>
