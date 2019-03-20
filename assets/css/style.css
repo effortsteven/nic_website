@@ -148,7 +148,7 @@ a:hover{
 	border-bottom-right-radius: 3px;
 	border-top-right-radius: 3px;
 	margin-bottom: 5px;
-	padding-top: 3px;
+	padding: 3px;
 	padding-bottom: 2px;
 	color:#4f5962;
 	font-size: 13px
@@ -166,12 +166,12 @@ a:hover{
 	float:right; 
 }
 .news_dates{
-	padding:3px;
+	padding:3px ;
 	border-radius: 2px;
 	text-align: center;
 }
 .col-news-date{
-	font-size: 13.5px
+	font-size: 13.5px;
 }
 .more-new-btn i{
 	font-size: 24px;
@@ -1017,6 +1017,12 @@ iframe{
 	margin-top: -300px !important;
 	border-radius: 10px;
 }
+.feeds_div{
+	padding-left: 0;	padding-right: 0;
+}
+.news_feeds_wrapp{
+	margin-top: 25px;
+}
 /*-------------------------------------MEDIA QUERY-----------------------------------------------------------------------------------------*/
 /*------------media-Q for big screens-----------*/
 
@@ -1301,6 +1307,9 @@ iframe{
 	}
 	.news_or_events_wrapper{
 		width: 93%
+	}
+	.news_feeds_wrapp{
+		padding-left: 0;padding-right: 0;
 	}
 }
 @media (max-width: 414px){
