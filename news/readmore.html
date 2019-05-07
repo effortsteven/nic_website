@@ -266,44 +266,67 @@
 
         // start send_mail function
 
-        function send_mail(news_id){
-            $.confirm({
-                type: 'green',
-                animation: 'zoom',
-                closeAnimation: 'scale',           
-                title: '<h5>Enter Your Email address!</h5>',
-                content: '' +
-                '<form action="" class="formName">' +
-                '<div class="form-group">' +
-                '<input type="email" placeholder="Enter your mail address......" class="mail form-control" required />' +
-                '</div>' +
-                '</form>',
-                buttons: {
-                    formSubmit: {
-                        text: 'Send',
-                        btnClass: 'btn-success',
-                        action: function () {
-                            var mail = this.$content.find('.mail').val();
-                            if(!mail){
-                                $.alert('Provide a valid mail');
-                                return false;
+        function send_mail(news_id) {
+        $.confirm({
+            type: 'green',
+            animation: 'zoom',
+            closeAnimation: 'scale',
+            title: '<h5>Enter Your Email address!</h5>',
+            content: `<form action="`+url+`emailApi/?token=`+developerToken+`" method="POST" class="formName">
+                <div class="form-group">
+                <input type="email" name="email" placeholder="Enter your mail address......" class="mail form-control" required />
+                </div>
+                </form>`,
+            onContentReady: function () {
+                var self = this;
+                $(document).on("submit", ".formName", function (e) {
+                    e.preventDefault();
+                    var mail = $(".mail").val();
+                    var link = $(this).attr("action");
+                    var method = $(this).attr("method");
+                    if (mail) {
+                        $.ajax({
+                            url: link,
+                            method: method,
+                            data: {
+                                "email": mail,
+                                "id": news_id
                             }
-                            if(isEmail(mail)==true){
-                                new Connect_2(news_id,mail);
-                                $.alert('Mail has been sent to email address ' + mail);  
-                            }else{
-                                $.alert('Email is not valid!');
-                                return false;
+                        }).done(function (response) {
+                            if (response.status) {
+                                self.setType("green");
+                                self.setContent('You have successfully subscribed to News and Events');
+                                self.$$formSubmit.hide();
+                                self.$$formClose.hide();
+                                setInterval(() => {
+                                    window.location.reload();
+                                }, 1000);
+                            } else {
+                                self.setType("red");
+                                self.$$formSubmit.hide();
+                                self.setContent('Email is not valid!');
                             }
-                            
-                        }
-                    },
-                    formClose: {
-                        text: 'Cancel',
-                        btnClass: 'btn-danger',
-                    },
-                }
-            });
-        }
+                        });
+                    } else {
+                        $.alert('Provide a valid mail');
+                    }
+                });
+            },
+            buttons: {
+                formSubmit: {
+                    text: 'Send',
+                    btnClass: 'btn-success',
+                    action: function () {
+                        $(".formName").submit();
+                        return false;
+                    }
+                },
+                formClose: {
+                    text: 'Cancel',
+                    btnClass: 'btn-danger',
+                },
+            }
+        });
+    }
         // end send_mail function
     </script>

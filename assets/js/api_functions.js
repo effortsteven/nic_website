@@ -146,7 +146,7 @@ function tenders() {
                   </div>
             </div>
             <div class="modal-footer">
-              <a href="`+ file_name + `" class="btn btn-success btn-round sys-btn-raise btn-sm"><i class="icon-download4"></i>&nbsp&nbspDownload</a>
+              <a href="`+ file_name + `" target="_blank" class="btn btn-success btn-round sys-btn-raise btn-sm" download><i class="icon-download4"></i>&nbsp&nbspDownload</a>
               <button type="button" class="btn btn-danger ml-2 btn-round sys-btn-raise btn-sm" data-dismiss="modal"><i class="icon-cross"></i> Close</button>
             </div>
           </div>
@@ -555,9 +555,10 @@ function news_events() {
                 image = image_raw;
             } else {
                 image = "../assets/img/kit/"+defaultNewsImage;
+                
             }
             if (download_link.length != 0){
-                download_btn = '<a href="' + download_link + '" download class="btn btn-fab btn-round btn-sm sys-btn-raise" title="Download File" data-toggle="tooltip" data-placement="bottom" style="background: #6a737b"><i class="material-icons">get_app</i></a>'
+                download_btn = '<a href="' + download_link + '" class="btn btn-fab btn-round btn-sm sys-btn-raise" title="Download File" data-toggle="tooltip" data-placement="bottom" style="background: #6a737b" download><i class="material-icons">get_app</i></a>'
             }else{
                 download_btn = '';
             }
@@ -634,7 +635,7 @@ function get_news_events(url_id) {
                 image = "../assets/img/kit/"+defaultNewsImage;
             }
             if (download_link.length != 0){
-                download_btn = '<a href="' + download_link + '" download class="btn btn-fab btn-round btn-sm sys-btn-raise" title="Download File" data-toggle="tooltip" data-placement="bottom" style="background: #6a737b"><i class="material-icons">get_app</i></a>'
+                download_btn = '<a href="' + download_link + '" class="btn btn-fab btn-round btn-sm sys-btn-raise" title="Download File" data-toggle="tooltip" data-placement="bottom" style="background: #6a737b" target="_blank" download><i class="material-icons">get_app</i></a>'
             }else{
                 download_btn = '';
             }

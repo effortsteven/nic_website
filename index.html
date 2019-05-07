@@ -28,6 +28,7 @@
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="assets/css/chat.css">
     <link rel="stylesheet" href="assets/css/samsung/style.css">
+    <link rel="stylesheet" type="text/css" href="assets/confirm_js/css/jquery-confirm.css">
 
     <!-- vue js framework -->
     <script src="assets/js/vue/vue.js"></script>
@@ -564,51 +565,59 @@
                 </div>
             </div>
         </div>
+        <div class="fader-div">
+            
+            <div class="fader element-animation">
+            </div>
+            <button class="btn btn-just-icon btn-round btn-linkedin btn-icon btn-download-app" style="background-color: rgb(31, 90, 44)" data-toggle="tooltip" data-html="true" data-placement="top" title="Download<br> Motor App">
+                <i class="material-icons">get_app</i>
+            </button>
+        </div>
         <div>
-        <ul class="fab-menu fab-menu-fixed fab-menu-bottom-right" data-fab-toggle="click" data-fab-state="closed">
-                <li >
-                    <a  class="fab-menu-btn btn btn-just-icon btn-round btn-linkedin btn-icon" data-toggle="tooltip" data-placement="left" title="Chat with us!">
-                        <i class="fab-icon-open material-icons">chat</i>
-                        <i class="fab-icon-close material-icons">close</i>
-                    </a>
+            <ul class="fab-menu fab-menu-fixed fab-menu-bottom-right" data-fab-toggle="click" data-fab-state="closed">
+                    <li >
+                        <a  class="fab-menu-btn btn btn-just-icon btn-round btn-linkedin btn-icon" data-toggle="tooltip" data-placement="left" title="Chat with us!">
+                            <i class="fab-icon-open material-icons">chat</i>
+                            <i class="fab-icon-close material-icons">close</i>
+                        </a>
 
-                    <ul class="fab-menu-inner">
-                        <li>
-                            <div class="chat-div">
-                                    <div class="chat-div-header">
-                                        <img src="assets/img/kit/user_prof.png" height="40px" style="display:inline" alt="user_logo" />
-                                        <p class="user-num" style="display:inline; ">
-                                            
-                                        </p>
-                                    </div>
-                                    <div class="chat-div-messages">
-                                        <div class="col-lg-12 reply">
-                                            <p>Hi <span class="user-num" style="color:#0976b4"></span>!</p>
+                        <ul class="fab-menu-inner">
+                            <li>
+                                <div class="chat-div">
+                                        <div class="chat-div-header">
+                                            <img src="assets/img/kit/user_prof.png" height="40px" style="display:inline" alt="user_logo" />
+                                            <p class="user-num" style="display:inline; ">
+                                                
+                                            </p>
                                         </div>
-                                    </div>
-                                    <div class="message-input">
-                                        <div class="wrap">
-                                        <input type="text" placeholder="Write your message..." />
-                                        <button class="submit btn btn-just-icon btn-round btn-tumblr btn-icon">
-                                                <i class="material-icons">send</i>
-                                        </button>
+                                        <div class="chat-div-messages">
+                                            <div class="col-lg-12 reply">
+                                                <p>Hi <span class="user-num" style="color:#0976b4"></span>!</p>
+                                            </div>
                                         </div>
-                                    </div>
-                            </div>
-                            <div class="chat-div-num">
-                                    <div class="message-input">
-                                        <div class="wrap">
-                                        <input type="text" placeholder="Please enter your number or email..." />
-                                        <button class="submit-num btn btn-just-icon btn-round btn-tumblr btn-icon">
-                                                <i class="material-icons">send</i>
-                                        </button>
+                                        <div class="message-input">
+                                            <div class="wrap">
+                                            <input type="text" class="form-control" placeholder="Write your message..." />
+                                            <button class="submit btn btn-just-icon btn-round btn-tumblr btn-icon">
+                                                    <i class="material-icons">send</i>
+                                            </button>
+                                            </div>
                                         </div>
-                                    </div>
-                            </div>
-                        </li>
-                    </ul>
-                </li>
-        </ul>
+                                </div>
+                                <div class="chat-div-num">
+                                        <div class="message-input">
+                                            <div class="wrap">
+                                            <input type="text" class="form-control" placeholder="use your number / email..." />
+                                            <button class="submit-num btn btn-just-icon btn-round btn-tumblr btn-icon">
+                                                    <i class="material-icons">send</i>
+                                            </button>
+                                            </div>
+                                        </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </li>
+            </ul>
         </div>
         <footer class="footer footer-white footer-big" style="box-shadow: 0 1px 10px 1px rgba(0,0,0,.3)">
                         <div class="container">
@@ -711,7 +720,7 @@
                                                 </a>
                                             </li> -->
                                             <li>
-                                                <a href="https://www.instagram.com/nic_tanzania" class="btn btn-just-icon btn-link btn-instagram">
+                                                <a href="https://www.instagram.com/nic_tanzania" class="btn btn-just-icon btn-link btn-rose">
                                                     <i class="fa fa-instagram"></i>
                                                 </a>
                                             </li>
@@ -766,6 +775,8 @@
 
     <script src="assets/js/bootstrap-notify.min.js"></script>
 
+    <script type="text/javascript" src="assets/confirm_js/js/jquery-confirm.js"></script>
+
 <script type="text/javascript">
 $(document).ready(function(){
      $(".news_div").html(news_feeds().slice(0, 5));
@@ -776,30 +787,51 @@ $('.app-time').text(now());
 
 
 // on click subscribe button send email to database
-$('#subscribe').click(function(){
+$('#subscribe').click(function () {
     var mail = $('.subscribe_mail').val();
+        
     if(isEmail(mail)){
-        new Connect_2(0,mail);
-            $.notify({
-        // options
-        message: '<i class="icon-checkmark3" style="font-size:20px;"></i>&nbsp &nbsp &nbsp You have successful subscribed to our news mail !'
-    },{
-        // settings
-        type: 'success',
-        mouse_over: 'pause'
-    });
+        $.ajax({
+                url: url+"emailApi/?token="+developerToken,
+                method: "POST",
+                data: {
+                    "email": mail,
+                    "id": 0
+                }
+            }).done(function (response) {
+                if (response.status) {
+                        $.notify({
+                    // options
+                    message: '<span><i class="icon-checkmark3" style="font-size:20px;"></i>&nbsp &nbsp &nbsp You have successful subscribed to our news/event! <br><span style="background:white;color:rgba(85, 181, 89,1); width:100%;position:relative;display:block; text-align:center;padding:3px;border-radius:3px">'+mail+'</span></span>'
+                },{
+                    // settings
+                    type: 'success',
+                    mouse_over: 'pause'
+                })
+                }else{
+                        $.notify({
+                    // options
+                    message: '<i class=" icon-cross2" style="font-size:20px;"></i>&nbsp &nbsp &nbsp Please enter your email again!'
+                },{
+                    // settings
+                    type: 'danger',
+                    mouse_over: 'pause'
+                })
+                }
+
+            });
+            $('.subscribe_mail').val(null)
         }else{
             $.notify({
-        // options
-        message: '<i class=" icon-cross2" style="font-size:20px;"></i>&nbsp &nbsp &nbsp Please provide a valid email !'
-    },{
-        // settings
-        type: 'danger',
-        mouse_over: 'pause'
+                    // options
+                    message: '<i class=" icon-cross2" style="font-size:20px;"></i>&nbsp &nbsp &nbsp Please provide a valid email !'
+                },{
+                    // settings
+                    type: 'danger',
+                    mouse_over: 'pause'
+                })
+            }        
     });
-        }
-            
-});
 
 
 
@@ -832,4 +864,8 @@ $('#subscribe').click(function(){
                 }
             });
         });
+        $(document).ready(function(){
+            
+        $('.btn-download-app').tooltip('show')
+        })
 </script>

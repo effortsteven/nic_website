@@ -1,16 +1,19 @@
 
-var response_data, url, developerToken;
+var response_data;
+var url;
+var developerToken;
 
 // CMS server IP address
-url = "https://motor.nictanzania.co.tz/";
-// url = "http://192.168.137.219:8000/";
+url = "https://motor.nictanzania.co.tz/nic_website/";
+// url = "http://10.42.0.249:8001/";
 
 // developerToken to access NIC APIs
 developerToken = "KZ3O5ONX0UZDRV7217LDGSWOXYK6SYLG";
 
 class Connect {
+    
     constructor() {
-        var ip_address = url + "nic_website/website_endpoint/";
+        var ip_address = url + "website_endpoint/";
         $.ajax({
             url: ip_address,
             method: "GET",
@@ -28,19 +31,29 @@ class Connect {
             }
         });
     }
+    
     filter_data_form(params) {
         return response_data[params];
     }
+
+    
 }
 
 class Connect_2 {
     constructor(news_id = 0, email_address) {
-        let ip_address = url + "nic_website/emailApi/";
+        // let ip_address = url + "nic_website/emailApi/";
+        let ip_address = url + "emailApi/?token="+developerToken;
+        // $.get(ip_address,{"token":developerToken,"id":news_id,"email":email_address}).done(function(response){
+        //     if (response.status) {
+        //         console.log('Connection successfull!');
+        //     } else {
+        //         console.log('Access Denied ' + response.message);
+        //     }
+        // });
         $.ajax({
             url: ip_address,
-            method: "GET",
+            method: "POST",
             data: {
-                "token": developerToken,
                 "id": news_id,
                 "email": email_address,
             },
